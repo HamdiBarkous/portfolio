@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image'; // Import next/image
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+// Removed unused Badge import: import { Badge } from "@/components/ui/badge";
 import {
   Github,
   Linkedin,
