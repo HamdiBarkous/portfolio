@@ -2,16 +2,66 @@ import Link from 'next/link';
 import Image from 'next/image'; // Import next/image
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Github, Linkedin, Mail } from 'lucide-react';
+import {
+  Github,
+  Linkedin,
+  Mail,
+  CodeXml, // Icon for Programming
+  BrainCircuit, // Icon for ML/DL
+  ServerCog, // Icon for DevOps
+  Cloud, // Icon for Cloud
+  WandSparkles, // Icon for AI Dev
+  // Removed placeholder/specific lucide icons: Code, Database, GitBranch
+} from 'lucide-react';
 
-// Extracted Skills Data (based on resume.tex)
-const skillsData = {
-  programming: ["Python", "SQL"],
-  mlDlFrameworks: ["TensorFlow", "PyTorch", "OpenCV", "Hugging Face Transformers"],
-  devOpsTools: ["Docker", "Git", "PostgreSQL", "MLflow"],
-  cloudInfrastructure: ["AWS SageMaker"],
-  aiEnhancedDevelopment: ["Cursor", "Cline", "MCP Servers"],
-};
+// Updated Skills Data with SVG paths
+const skillsCategories = [
+  {
+    name: "Programming",
+    icon: CodeXml,
+    skills: [
+      { name: "Python", iconPath: "/logos/python.svg" },
+      { name: "SQL", iconPath: "/logos/sql.svg" },
+    ],
+  },
+  {
+    name: "ML/DL Frameworks",
+    icon: BrainCircuit,
+    skills: [
+      { name: "TensorFlow", iconPath: "/logos/tensorflow.svg" },
+      { name: "PyTorch", iconPath: "/logos/pytorch.svg" },
+      { name: "OpenCV", iconPath: "/logos/opencv.svg" },
+      { name: "Hugging Face Transformers", iconPath: "/logos/huggingface.svg" },
+    ],
+  },
+  {
+    name: "DevOps & Tools",
+    icon: ServerCog,
+    skills: [
+      { name: "Docker", iconPath: "/logos/docker.svg" },
+      { name: "Git", iconPath: "/logos/git.svg" },
+      { name: "PostgreSQL", iconPath: "/logos/postgress.svg" }, // Note: Filename is postgress.svg
+      { name: "MLflow", iconPath: "/logos/mlflow.svg" },
+    ],
+  },
+  {
+    name: "Cloud & Infrastructure",
+    icon: Cloud,
+    skills: [
+      { name: "AWS SageMaker", iconPath: "/logos/aws.svg" }, // Using AWS logo
+    ],
+  },
+  {
+    name: "AI-Enhanced Development",
+    icon: WandSparkles,
+    skills: [
+      { name: "Cursor", iconPath: "/logos/cursor.svg" },
+      { name: "Cline", iconPath: "/logos/cline.svg" },
+      { name: "MCP Servers", iconPath: "/logos/mcp.svg" },
+    ],
+  },
+];
+
 
 export default function Home() {
   return (
@@ -60,58 +110,37 @@ export default function Home() {
        </div> {/* Add missing closing div for text content */}
       </section>
 
-      {/* Skills Section */}
-      <section id="skills" className="mb-16 md:mb-20 lg:mb-24">
-        <h2 className="text-3xl font-bold text-center mb-8 md:mb-12">Skills</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Programming */}
-          <div>
-            <h3 className="text-xl font-semibold mb-4">Programming</h3>
-            <div className="flex flex-wrap gap-2">
-              {skillsData.programming.map((skill) => (
-                <Badge key={skill} variant="secondary">{skill}</Badge>
-              ))}
-            </div>
+      {/* Skills Section - Apply accent background */}
+      <div className="bg-muted/10 rounded-lg p-8 md:p-12 lg:p-16 mb-16 md:mb-20 lg:mb-24">
+        <section id="skills">
+          <h2 className="text-3xl font-bold text-center mb-8 md:mb-12">Skills</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {skillsCategories.map((category) => (
+              <div key={category.name}>
+                <h3 className="text-xl font-semibold mb-4 flex items-center">
+                  <category.icon className="h-5 w-5 mr-2 flex-shrink-0" />
+                  {category.name}
+                </h3>
+                {/* Use a list for better structure and larger text */}
+                <ul className="space-y-2">
+                  {category.skills.map((skill) => (
+                    <li key={skill.name} className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <Image
+                        src={skill.iconPath}
+                        alt={`${skill.name} logo`}
+                        width={16} // Adjust size as needed (16x16)
+                        height={16}
+                        className="flex-shrink-0" // Prevent icon from shrinking
+                      />
+                      <span>{skill.name}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
-          {/* ML/DL Frameworks */}
-          <div>
-            <h3 className="text-xl font-semibold mb-4">ML/DL Frameworks</h3>
-            <div className="flex flex-wrap gap-2">
-              {skillsData.mlDlFrameworks.map((skill) => (
-                <Badge key={skill} variant="secondary">{skill}</Badge>
-              ))}
-            </div>
-          </div>
-          {/* DevOps & Tools */}
-          <div>
-            <h3 className="text-xl font-semibold mb-4">DevOps & Tools</h3>
-            <div className="flex flex-wrap gap-2">
-              {skillsData.devOpsTools.map((skill) => (
-                <Badge key={skill} variant="secondary">{skill}</Badge>
-              ))}
-            </div>
-          </div>
-          {/* Cloud & Infrastructure */}
-          <div>
-            <h3 className="text-xl font-semibold mb-4">Cloud & Infrastructure</h3>
-            <div className="flex flex-wrap gap-2">
-              {skillsData.cloudInfrastructure.map((skill) => (
-                <Badge key={skill} variant="secondary">{skill}</Badge>
-              ))}
-            </div>
-          </div>
-          {/* AI-Enhanced Development */}
-          <div>
-            <h3 className="text-xl font-semibold mb-4">AI-Enhanced Development</h3>
-            <div className="flex flex-wrap gap-2">
-              {skillsData.aiEnhancedDevelopment.map((skill) => (
-                <Badge key={skill} variant="secondary">{skill}</Badge>
-              ))}
-            </div>
-          </div>
-          {/* Languages can be added similarly if desired */}
-        </div>
-      </section>
+        </section>
+      </div>
 
       {/* Optional Highlights Section can go here */}
       {/*

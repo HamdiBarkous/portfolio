@@ -79,10 +79,13 @@ export default function ProjectsPage() {
       <h1 className="text-4xl font-bold tracking-tight text-center mb-12 md:mb-16">
         Projects & Experience
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-        {projectsData.map((project, index) => (
-          <ProjectCard key={index} {...project} />
-        ))}
+      {/* Add wrapper div with accent background */}
+      <div className="bg-muted/10 rounded-lg p-8 md:p-12 lg:p-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {projectsData.map((project, index) => (
+            <ProjectCard key={index} {...project} />
+          ))}
+        </div>
       </div>
     </div>
   );

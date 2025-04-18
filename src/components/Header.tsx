@@ -1,9 +1,11 @@
 import Link from 'next/link';
+import { ThemeToggle } from './ThemeToggle'; // Import ThemeToggle
 
 export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 max-w-screen-2xl items-center">
+      {/* Adjust container to justify space between nav and toggle */}
+      <div className="container flex h-14 max-w-screen-2xl items-center justify-between">
         <nav className="flex items-center space-x-4 lg:space-x-6">
           <Link href="/" className="mr-6 flex items-center space-x-2">
             {/* Placeholder for Logo or Name */}
@@ -19,7 +21,9 @@ export default function Header() {
             Contact
           </Link>
         </nav>
-        {/* Add Theme Toggle or other elements here later */}
+        <div className="flex items-center space-x-2">
+          <ThemeToggle /> {/* Add the ThemeToggle component */}
+        </div>
       </div>
     </header>
   );

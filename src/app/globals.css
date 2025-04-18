@@ -117,6 +117,10 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    /* Apply subtle gradient using background and muted variables */
+    @apply text-foreground; /* Keep apply for text color */
+    /* Set background properties directly */
+    background: linear-gradient(to bottom, oklch(from var(--background) l c h), oklch(from var(--muted) l c h / 0.1));
+    background-color: var(--background); /* Fallback */
   }
 }

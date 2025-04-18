@@ -30,9 +30,11 @@ export default function ContactPage() {
         Get In Touch
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
-        {/* Contact Info */}
-        <div className="space-y-6">
+      {/* Add wrapper div with accent background */}
+      <div className="bg-muted/10 rounded-lg p-8 md:p-12 lg:p-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+          {/* Contact Info */}
+          <div className="space-y-6">
           <h2 className="text-2xl font-semibold">Contact Information</h2>
           <p className="text-muted-foreground">
             Feel free to reach out via email or connect on social media.
@@ -78,7 +80,8 @@ export default function ContactPage() {
              <Button type="submit">Send Message</Button>
            </form>
         </div>
+          </div>
+        </div>
       </div>
-    </div>
   );
 }
