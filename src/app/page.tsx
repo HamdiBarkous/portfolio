@@ -110,32 +110,49 @@ export default function Home() {
        </div> {/* Add missing closing div for text content */}
       </section>
 
-      {/* Skills Section - Apply accent background */}
-      <div className="bg-muted/10 rounded-lg p-8 md:p-12 lg:p-16 mb-16 md:mb-20 lg:mb-24">
+      {/* Skills Section - Enhanced Design */}
+      <div className="mb-16 md:mb-20 lg:mb-24">
         <section id="skills">
-          <h2 className="text-3xl font-bold text-center mb-8 md:mb-12">Skills</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <h2 className="text-3xl font-bold text-center mb-8 md:mb-12 text-foreground">
+            Technical Skills
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {skillsCategories.map((category) => (
-              <div key={category.name}>
-                <h3 className="text-xl font-semibold mb-4 flex items-center">
-                  <category.icon className="h-5 w-5 mr-2 flex-shrink-0" />
-                  {category.name}
-                </h3>
-                {/* Use a list for better structure and larger text */}
-                <ul className="space-y-2">
-                  {category.skills.map((skill) => (
-                    <li key={skill.name} className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <Image
-                        src={skill.iconPath}
-                        alt={`${skill.name} logo`}
-                        width={16} // Adjust size as needed (16x16)
-                        height={16}
-                        className="flex-shrink-0" // Prevent icon from shrinking
-                      />
-                      <span>{skill.name}</span>
-                    </li>
-                  ))}
-                </ul>
+              <div
+                key={category.name}
+                className="group relative overflow-hidden rounded-xl border border-border/30 bg-background/50 p-6 shadow-sm transition-all hover:shadow-md hover:border-primary/30"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 transition-opacity group-hover:opacity-100" />
+                
+                <div className="relative z-10">
+                  <div className="flex items-center gap-3 mb-4">
+                    <category.icon className="h-6 w-6 text-primary" />
+                    <h3 className="text-xl font-semibold text-foreground">
+                      {category.name}
+                    </h3>
+                  </div>
+                  
+                  <div className="grid grid-cols-2 gap-3">
+                    {category.skills.map((skill) => (
+                      <div
+                        key={skill.name}
+                        className="flex items-center gap-3 rounded-lg p-2 transition-colors hover:bg-muted/50"
+                      >
+                        <div className="flex h-8 w-8 items-center justify-center rounded-md bg-muted p-1">
+                          <Image
+                            src={skill.iconPath}
+                            alt={`${skill.name} logo`}
+                            width={20}
+                            height={20}
+                            className="h-5 w-5 object-contain"
+                          />
+                        </div>
+                        <span className="text-sm font-medium text-foreground">{skill.name}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             ))}
           </div>
