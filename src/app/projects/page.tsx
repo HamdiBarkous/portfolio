@@ -13,7 +13,7 @@ const projectsData = [
     type: 'experience' as const,
     title: 'FinGenesis',
     subtitle: 'ML Engineer',
-    dateOrPeriod: '2023 – Present',
+    dateOrPeriod: '2024 – Present',
     description: [
       'Designed and implemented DL/ML models to predict price movements of financial symbols.',
       'Developed an agentic framework for ticker-based sentiment analysis, enabling actionable insights.',
@@ -76,16 +76,15 @@ const projectsData = [
 export default function ProjectsPage() {
   return (
     <div className="container mx-auto px-4 py-12 md:py-16 lg:py-20">
-      <h1 className="text-4xl font-bold tracking-tight text-center mb-12 md:mb-16">
+      <h1 className="text-4xl font-bold tracking-tight text-center mb-12 md:mb-16 text-foreground">
         Projects & Experience
       </h1>
-      {/* Add wrapper div with accent background */}
-      <div className="bg-muted/10 rounded-lg p-8 md:p-12 lg:p-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {projectsData.map((project, index) => (
-            <ProjectCard key={index} {...project} />
-          ))}
-        </div>
+      
+      {/* Fluid masonry grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {projectsData.map((project, index) => (
+          <ProjectCard key={index} {...project} />
+        ))}
       </div>
     </div>
   );
