@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image'; // Import next/image
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Github, Linkedin, Mail } from 'lucide-react';
@@ -16,19 +17,32 @@ export default function Home() {
   return (
     <div className="container mx-auto px-4 py-12 md:py-16 lg:py-20">
       {/* Hero Section */}
-      <section id="hero" className="mb-16 md:mb-20 lg:mb-24 text-center">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-3">
-          Hamdi Barkous
-        </h1>
-        <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-muted-foreground mb-6">
-          ML Engineer
-        </h2>
-        <p className="max-w-3xl mx-auto text-base sm:text-lg text-muted-foreground mb-8">
-          Passionate about artificial intelligence, mathematics, and optimization. Dedicated to the development and refinement of deep learning models with a strong work ethic and a continuous drive for learning.
-        </p>
-        <div className="flex justify-center items-center space-x-4">
-          <Button asChild variant="outline" size="icon">
-            <Link href="https://github.com/HamdiBarkous" target="_blank" rel="noreferrer" aria-label="GitHub">
+      <section id="hero" className="mb-16 md:mb-20 lg:mb-24 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+        {/* Image */}
+        <div className="flex-shrink-0">
+          <Image
+            src="/img/self.jpg" // Path relative to the public directory
+            alt="Hamdi Barkous"
+            width={180} // Adjust size as needed
+            height={180}
+            priority // Load image eagerly as it's above the fold
+            className="rounded-full object-cover border-4 border-primary/20 shadow-lg"
+          />
+        </div>
+        {/* Text Content */}
+        <div className="text-center md:text-left flex-grow">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-3">
+            Hamdi Barkous
+          </h1>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-muted-foreground mb-6">
+            ML Engineer
+          </h2>
+          <p className="max-w-3xl text-base sm:text-lg text-muted-foreground mb-8">
+            Passionate about artificial intelligence, mathematics, and optimization. Dedicated to the development and refinement of deep learning models with a strong work ethic and a continuous drive for learning.
+          </p>
+          <div className="flex justify-center md:justify-start items-center space-x-4">
+            <Button asChild variant="outline" size="icon">
+              <Link href="https://github.com/HamdiBarkous" target="_blank" rel="noreferrer" aria-label="GitHub">
               <Github className="h-5 w-5" />
             </Link>
           </Button>
@@ -43,6 +57,7 @@ export default function Home() {
             </Link>
           </Button>
         </div>
+       </div> {/* Add missing closing div for text content */}
       </section>
 
       {/* Skills Section */}
