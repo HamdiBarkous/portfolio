@@ -6,7 +6,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Github, Linkedin, Mail } from 'lucide-react';
-import type { Metadata } from 'next';
 
 // Note: Metadata export might need adjustment if 'use client' is strictly required at the top level.
 // For now, we keep it, but might need a separate layout or server component for metadata if form interaction becomes complex.
