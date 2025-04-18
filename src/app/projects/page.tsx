@@ -17,10 +17,10 @@ const projectsData = [
     description: [
       'Designed and implemented DL/ML models to predict price movements of financial symbols.',
       'Developed an agentic framework for ticker-based sentiment analysis, enabling actionable insights.',
-      'Designed and implemented rule-based trading strategies.',
-      'Designed and implemented LLM-based trading strategies with explainability.',
+      'Designed and implemented rule-based and LLM-based trading strategies with explainability.',
       'Designed a backtesting framework for evaluating trading strategies.',
-      'Improved data pipeline efficiencies and speed.',
+      'Implemented various algorithms from the literature for forecasts post-processing.',
+      'Improved data pipelines efficiencies and speed.',
     ],
     keywords: ['Deep Learning', 'Machine Learning', 'Finance', 'Agentic Frameworks', 'Sentiment Analysis', 'LLM', 'Trading', 'Backtesting', 'Data Pipelines'],
   },
@@ -29,7 +29,13 @@ const projectsData = [
     title: 'XAI Lab - Concordia University',
     subtitle: 'AI Research Scholar',
     dateOrPeriod: 'May 2020 – Sep 2020',
-    description: 'Implemented and validated the ETS+RD-LSTM model for midterm load forecasting.',
+    description: [
+      'Worked on midterm electric load forecasting by implementing and validating a hybrid ETS+RD-LSTM model.',
+      'Conducted an in-depth literature review of state-of-the-art forecasting methods, identifying key limitations and opportunities for improvement.',
+      'Enhanced the baseline model’s architecture and performance through iterative experimentation and optimization.',
+      'Led a comprehensive ablation study to understand the individual contributions of each model component, and benchmarked performance against other advanced deep learning and statistical models.',
+      //'Collaborated closely with peers and faculty to ensure rigorous validation, and contributed to ongoing discussions around model explainability in energy forecasting.'
+    ],
     keywords: ['LSTM', 'Dilation', 'Residual Connection', 'ETS', 'Forecasting', 'Time Series'],
   },
   // Publications
