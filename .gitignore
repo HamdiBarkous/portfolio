@@ -39,3 +39,16 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+*.aux
+*.bbl
+*.blg
+*.log
+*.pdf
+*.dvi
+*.ps
+*.toc
+*.synctex.gz
+*.out
+*.fls
+*.fdb_latexmk 

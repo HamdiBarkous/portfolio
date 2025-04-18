@@ -1,0 +1,95 @@
+% Document class and font size
+\documentclass[a4paper,9pt]{extarticle}
+
+% Packages
+\usepackage[utf8]{inputenc} % For input encoding
+\usepackage{geometry} % For page margins
+\geometry{a4paper, margin=0.75in} % Set paper size and margins
+\usepackage{titlesec} % For section title formatting
+\usepackage{enumitem} % For itemized list formatting
+\usepackage{hyperref} % For hyperlinks
+\usepackage{xcolor}
+\usepackage{fontawesome}
+
+
+% Formatting
+\setlist{noitemsep} % Removes item separation
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}[\titlerule] % Section title format
+\titlespacing*{\section}{0pt}{\baselineskip}{\baselineskip} % Section title spacing
+
+% Begin document
+\begin{document}
+
+% Disable page numbers
+\pagestyle{empty}
+
+% Header
+\begin{center}
+\textbf{\huge Hamdi Barkous}\\[2pt] % Name
+\href{https://github.com/HamdiBarkous}{\faGithub\ Hamdi Barkous}
+ | \href{mailto:hamdi.barkous@ept.ucar.tn}{\faEnvelopeO\ hamdi.barkous@ept.ucar.tn}
+ | \href{https://www.linkedin.com/in/HamdiBarkous}{\faLinkedin\ HamdiBarkous}
+ % Contact info
+\end{center}
+
+\section*{CAREER OBJECTIVE}
+Passionate about artificial intelligence, mathematics, and optimization. Dedicated to the development and refinement of deep learning models with a strong work ethic and a continuous drive for learning.
+
+\section*{EDUCATION}
+\textbf{École Polytechnique de Tunisie -- \textit{ABET Accredited}}
+\hfill 2017 -- 2020\\ 
+\textit{Multidisciplinary Engineering} - Minor: Signals \& systems \\
+\textbf{Relevant Courses:}
+\begin{itemize}
+            \item \textbf{Mathematics}: Optimization, Detection and Estimation, Probability \& Statistics, Stochastic Processes
+            \item \textbf{ Computer Science}: Artificial Intelligence, Data Science, Data Analysis, Algorithms and Data Structures.
+            \item \textbf{Signals and Systems}: Signal Processing, Digital Communication,Control Theory,  Information Theory
+\end{itemize}
+\textbf{Preparatory Institute for Engineering Studies of Monastir} \hfill 2015 -- 2017\\
+\textit{Pre-engineering studies} - Mathematics \& physics \hfill National Exam Rank: \textbf{16/1000}\\
+
+\section*{EXPERIENCE}
+\textbf{FinGenesis} - \textit{ML Engineer} \hfill 2023 -- present 
+
+\begin{itemize}
+    \item Designed and implemented DL\&ML models to predict price movements of financial symbols.
+    \item Developed an agentic framework for ticker-based sentiment analysis, enabling actionable insights from financial data.
+    \item Designed and implemented rule-based trading strategies.
+    \item Designed and implemented LLM-based trading strategies with explainability as a key feature.
+    \item Designed a backtesting framework for evaluating trading strategies.
+    \item Improved data pipeline efficiencies and speed, resulting in enhanced performance.
+\end{itemize}
+\textbf{XAI Lab - Concordia University} - \textit{AI Research Scholar} \hfill May 2020 -- Sep 2020
+
+Implemented and validated the \textbf{ETS+RD-LSTM} model for midterm load forecasting. \\ 
+ \phantom{aaa} \textbf{keywords:} LSTM, Dilation, Residual Connection, ETS, Forecasting 
+\section*{PUBLICATIONS}
+\noindent Barkous, H., Amayri, M., \& Bouguila, N. ``\textbf{A Comprehensive Analysis of a Hybrid Deep Learning Model for Midterm Electric Load Forecasting}" 21st IEEE International Conference on Smart Cities, Australia, Dec 13, 2023
+\section*{AI COMPETITIONS}
+\textbf{Unifi Value Frameworks PDF Lifting Competition (5000\$)}--  \href{https://github.com/HamdiBarkous/Unifi-Value-Frameworks-PDF-Lifting-Competition}{\textcolor{blue}{\href{https://github.com/HamdiBarkous/Unifi-Value-Frameworks-PDF-Lifting-Competition}{\faGithub}}} \hfill \textbf{Ranked 1/76} \\
+\phantom{aaa} \textbf{keywords:} LLM - RAG
+\\
+\textbf{DataDrive2030 Early Learning Predictors Challenge (3000\$)}--  \href{https://github.com/HamdiBarkous/DataDrive2030-Early-Learning-Predictors-Challenge}{\textcolor{blue}{\href{https://github.com/HamdiBarkous/DataDrive2030-Early-Learning-Predictors-Challenge}{\faGithub}}} \hfill \textbf{Ranked 1/336} \\
+\phantom{aaa} \textbf{keywords:} Machine Learning - XGBoost
+\\
+\textbf{Carbon Dioxide Prediction Challenge (2100\$)}--\href{https://github.com/HamdiBarkous/UmojaHack-Africa-2023-Carbon-Dioxide-Prediction-Challenge}{\textcolor{blue}{\href{https://github.com/HamdiBarkous/UmojaHack-Africa-2023-Carbon-Dioxide-Prediction-Challenge}{\faGithub}}}  \hfill \textbf{Ranked 1/441} \\
+\phantom{aaa} \textbf{keywords:} Machine Learning - Time Series Forecasting
+
+\section*{SKILLS AND LANGUAGES}
+\begin{itemize}
+    \item \textbf{Programming:} Python, SQL
+    \item \textbf{ML/DL Frameworks:} TensorFlow, PyTorch, OpenCV, Hugging Face Transformers
+    \item \textbf{DevOps \& Tools:} Docker, Git, PostgreSQL, MLflow
+    \item \textbf{Cloud \& Infrastructure:} AWS SageMaker
+    \item \textbf{AI-Enhanced Development:} Cursor, Cline, MCP Servers
+    \item \textbf{Languages:} English (Fluent), French (Fluent), Arabic (Native)
+\end{itemize}
+
+
+
+\section*{ACHIEVEMENTS}
+\textbf{Champion of the Crowdfunding Tunisia Hackathon 2023:}\\ Led team CodeCraft to first place with a project focused on "Making crowdfunding activities accessible to Tunisian governorates." The victory was announced during the inaugural Crowdfunding Forum in Tunisia, under the aegis of the government and various prominent organizations within the Innov’i – EU4Innovation project. \\
+
+
+% End document
+\end{document}
