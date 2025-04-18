@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { ArrowUpRight, Github, Award, BookOpen, Briefcase } from "lucide-react"
+import { ArrowUpRight, Award, BookOpen, Briefcase } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 
