@@ -1,7 +1,17 @@
+'use client';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { ThemeToggle } from './ThemeToggle'; // Import ThemeToggle
 
 export default function Header() {
+  const pathname = usePathname();
+
+  const getLinkClassName = (href: string) => {
+    const isActive = pathname === href;
+    return isActive ? 'nav-link-active' : 'nav-link-inactive';
+  };
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       {/* Adjust container to justify space between nav and toggle */}
@@ -11,13 +21,13 @@ export default function Header() {
             {/* Placeholder for Logo or Name */}
             <span className="font-bold">Hamdi Barkous</span>
           </Link>
-          <Link href="/" className="text-sm font-medium transition-colors hover:text-primary">
+          <Link href="/" className={getLinkClassName('/')}>
             Home
           </Link>
-          <Link href="/projects" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
+          <Link href="/projects" className={getLinkClassName('/projects')}>
             Projects
           </Link>
-          <Link href="/contact" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
+          <Link href="/contact" className={getLinkClassName('/contact')}>
             Contact
           </Link>
         </nav>

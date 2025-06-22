@@ -124,3 +124,26 @@
     background-color: var(--background); /* Fallback */
   }
 }
+
+@layer components {
+  /* Navigation Link Styles */
+  .nav-link {
+    @apply text-sm font-medium transition-colors;
+  }
+  
+  .nav-link-active {
+    @apply nav-link text-foreground;
+  }
+  
+  .nav-link-active:hover {
+    @apply text-primary;
+  }
+  
+  .nav-link-inactive {
+    @apply nav-link text-muted-foreground;
+  }
+  
+  .nav-link-inactive:hover {
+    @apply text-primary;
+  }
+}

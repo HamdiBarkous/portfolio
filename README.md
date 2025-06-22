@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Auto-Restart Development Server
 
-## Getting Started
+Automatically restart your Next.js development server when builds are triggered. Eliminates the need for manual server restarts during development workflows.
 
-First, run the development server:
+## Installation
 
+### NPX (Recommended)
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cd your-nextjs-project
+npx next-auto-restart
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Manual Setup
+1. Copy `smart-dev-template.sh` to your project root as `smart-dev.sh`
+2. Make it executable: `chmod +x smart-dev.sh`
+3. Update your `package.json` scripts:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```json
+{
+  "scripts": {
+    "build": "next build && touch /tmp/$(basename $PWD)-build-signal",
+    "dev-smart": "./smart-dev.sh"
+  }
+}
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Usage
 
-## Learn More
+```bash
+npm run dev-smart    # Terminal 1
+npm run build        # Terminal 2 - triggers restart
+```
 
-To learn more about Next.js, take a look at the following resources:
+## How It Works
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Uses file-based inter-process communication:
+1. Build script creates a signal file in `/tmp/`
+2. Development script monitors for the signal
+3. On detection: terminates current server, starts fresh instance
+4. Signal file removed, monitoring continues
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Requirements
 
-## Deploy on Vercel
+- Next.js project
+- Unix-like environment (macOS, Linux, WSL)
+- Bash shell
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Files
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `smart-dev-template.sh` - Core development server script
+- `SETUP-INSTRUCTIONS.md` - Detailed setup guide
+- `install-auto-restart.js` - NPX installer script
+
+## License
+
+MIT
