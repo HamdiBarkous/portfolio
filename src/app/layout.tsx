@@ -34,15 +34,6 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {/* Floating Geometric Shapes Background */}
-          <div className="floating-shapes">
-            <div className="floating-shape"></div>
-            <div className="floating-shape"></div>
-            <div className="floating-shape"></div>
-            <div className="floating-shape"></div>
-            <div className="floating-shape"></div>
-          </div>
-          
           <Header />
           <main className="flex-grow">{children}</main>
           <Footer />
