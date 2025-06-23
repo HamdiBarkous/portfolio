@@ -1,6 +1,7 @@
 import Link from 'next/link';
-import Image from 'next/image'; // Import next/image
+import Image from 'next/image';
 import { Button } from "@/components/ui/button";
+import { ThemedIcon } from "@/components/ThemedIcon";
 // Removed unused Badge import: import { Badge } from "@/components/ui/badge";
 import {
   Github,
@@ -14,50 +15,50 @@ import {
   // Removed placeholder/specific lucide icons: Code, Database, GitBranch
 } from 'lucide-react';
 
-// Updated Skills Data with SVG paths
+// Updated Skills Data with icon names for theme-aware rendering
 const skillsCategories = [
   {
     name: "Programming",
     icon: CodeXml,
     skills: [
-      { name: "Python", iconPath: "/logos/python-dark.svg" },
-      { name: "SQL", iconPath: "/logos/sql-dark.svg" },
+      { name: "Python", iconName: "python" },
+      { name: "SQL", iconName: "sql" },
     ],
   },
   {
     name: "ML/DL Frameworks",
     icon: BrainCircuit,
     skills: [
-      { name: "TensorFlow", iconPath: "/logos/tensorflow-dark.svg" },
-      { name: "PyTorch", iconPath: "/logos/pytorch-dark.svg" },
-      { name: "OpenCV", iconPath: "/logos/opencv-dark.svg" },
-      { name: "Hugging Face Transformers", iconPath: "/logos/huggingface-dark.svg" },
+      { name: "TensorFlow", iconName: "tensorflow" },
+      { name: "PyTorch", iconName: "pytorch" },
+      { name: "OpenCV", iconName: "opencv" },
+      { name: "Hugging Face Transformers", iconName: "huggingface" },
     ],
   },
   {
     name: "DevOps & Tools",
     icon: ServerCog,
     skills: [
-      { name: "Docker", iconPath: "/logos/docker-dark.svg" },
-      { name: "Git", iconPath: "/logos/git-dark.svg" },
-      { name: "PostgreSQL", iconPath: "/logos/postgresql-dark.svg" },
-      { name: "MLflow", iconPath: "/logos/mlflow-dark.svg" },
+      { name: "Docker", iconName: "docker" },
+      { name: "Git", iconName: "git" },
+      { name: "PostgreSQL", iconName: "postgress" },
+      { name: "MLflow", iconName: "mlflow" },
     ],
   },
   {
     name: "Cloud & Infrastructure",
     icon: Cloud,
     skills: [
-      { name: "AWS SageMaker", iconPath: "/logos/aws-dark.svg" },
+      { name: "AWS SageMaker", iconName: "aws" },
     ],
   },
   {
     name: "AI-Enhanced Development",
     icon: WandSparkles,
     skills: [
-      { name: "Cursor", iconPath: "/logos/cursor.svg" },
-      { name: "Cline", iconPath: "/logos/cline.svg" },
-      { name: "MCP Servers", iconPath: "/logos/mcp.svg" },
+      { name: "Cursor", iconName: "cursor" },
+      { name: "Cline", iconName: "cline" },
+      { name: "MCP Servers", iconName: "mcp" },
     ],
   },
 ];
@@ -140,8 +141,8 @@ export default function Home() {
                         className="flex items-center gap-3 rounded-lg p-2 transition-colors hover:bg-muted/50"
                       >
                         <div className="flex h-8 w-8 items-center justify-center rounded-md bg-muted p-1">
-                          <Image
-                            src={skill.iconPath}
+                          <ThemedIcon
+                            name={skill.iconName}
                             alt={`${skill.name} logo`}
                             width={20}
                             height={20}
