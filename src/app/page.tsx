@@ -7,27 +7,26 @@ import {
   Github,
   Linkedin,
   Mail,
-  CodeXml, // Icon for Programming
-  BrainCircuit, // Icon for ML/DL
-  ServerCog, // Icon for DevOps
-  Cloud, // Icon for Cloud
+  CodeXml, // Icon for Programming Languages
+  BrainCircuit, // Icon for ML/AI
+  ServerCog, // Icon for Backend & APIs
+  Database, // Icon for Databases & Storage
+  Cloud, // Icon for Cloud & MLOps
   WandSparkles, // Icon for AI Dev
-  // Removed placeholder/specific lucide icons: Code, Database, GitBranch
 } from 'lucide-react';
 
 // Updated Skills Data with icon names for theme-aware rendering
 const skillsCategories = [
   {
-    name: "Programming",
+    name: "Programming Languages",
     icon: CodeXml,
     skills: [
       { name: "Python", iconName: "python" },
       { name: "SQL", iconName: "sql" },
-      { name: "FastAPI", iconName: "fastapi" },
     ],
   },
   {
-    name: "ML/DL Frameworks",
+    name: "ML/AI Frameworks",
     icon: BrainCircuit,
     skills: [
       { name: "TensorFlow", iconName: "tensorflow" },
@@ -38,22 +37,29 @@ const skillsCategories = [
     ],
   },
   {
-    name: "DevOps & Tools",
+    name: "Backend & APIs",
     icon: ServerCog,
     skills: [
-      { name: "Docker", iconName: "docker" },
-      { name: "Git", iconName: "git" },
-      { name: "PostgreSQL", iconName: "postgress" },
+      { name: "FastAPI", iconName: "fastapi" },
       { name: "MLflow", iconName: "mlflow" },
-      { name: "Redis", iconName: "redis" },
     ],
   },
   {
-    name: "Cloud & Infrastructure",
+    name: "Databases & Storage",
+    icon: Database,
+    skills: [
+      { name: "PostgreSQL", iconName: "postgress" },
+      { name: "Redis", iconName: "redis" },
+      { name: "Supabase", iconName: "supabase" },
+    ],
+  },
+  {
+    name: "Cloud & MLOps",
     icon: Cloud,
     skills: [
       { name: "AWS SageMaker", iconName: "aws" },
-      { name: "Supabase", iconName: "supabase" },
+      { name: "Docker", iconName: "docker" },
+      { name: "Git", iconName: "git" },
     ],
   },
   {
