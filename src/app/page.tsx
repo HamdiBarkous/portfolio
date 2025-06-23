@@ -20,35 +20,35 @@ const skillsCategories = [
     name: "Programming",
     icon: CodeXml,
     skills: [
-      { name: "Python", iconPath: "/logos/python.svg" },
-      { name: "SQL", iconPath: "/logos/sql.svg" },
+      { name: "Python", iconPath: "/logos/python-dark.svg" },
+      { name: "SQL", iconPath: "/logos/sql-dark.svg" },
     ],
   },
   {
     name: "ML/DL Frameworks",
     icon: BrainCircuit,
     skills: [
-      { name: "TensorFlow", iconPath: "/logos/tensorflow.svg" },
-      { name: "PyTorch", iconPath: "/logos/pytorch.svg" },
-      { name: "OpenCV", iconPath: "/logos/opencv.svg" },
-      { name: "Hugging Face Transformers", iconPath: "/logos/huggingface.svg" },
+      { name: "TensorFlow", iconPath: "/logos/tensorflow-dark.svg" },
+      { name: "PyTorch", iconPath: "/logos/pytorch-dark.svg" },
+      { name: "OpenCV", iconPath: "/logos/opencv-dark.svg" },
+      { name: "Hugging Face Transformers", iconPath: "/logos/huggingface-dark.svg" },
     ],
   },
   {
     name: "DevOps & Tools",
     icon: ServerCog,
     skills: [
-      { name: "Docker", iconPath: "/logos/docker.svg" },
-      { name: "Git", iconPath: "/logos/git.svg" },
-      { name: "PostgreSQL", iconPath: "/logos/postgress.svg" }, // Note: Filename is postgress.svg
-      { name: "MLflow", iconPath: "/logos/mlflow.svg" },
+      { name: "Docker", iconPath: "/logos/docker-dark.svg" },
+      { name: "Git", iconPath: "/logos/git-dark.svg" },
+      { name: "PostgreSQL", iconPath: "/logos/postgresql-dark.svg" },
+      { name: "MLflow", iconPath: "/logos/mlflow-dark.svg" },
     ],
   },
   {
     name: "Cloud & Infrastructure",
     icon: Cloud,
     skills: [
-      { name: "AWS SageMaker", iconPath: "/logos/aws.svg" }, // Using AWS logo
+      { name: "AWS SageMaker", iconPath: "/logos/aws-dark.svg" },
     ],
   },
   {
