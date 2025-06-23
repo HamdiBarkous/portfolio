@@ -23,6 +23,7 @@ const skillsCategories = [
     skills: [
       { name: "Python", iconName: "python" },
       { name: "SQL", iconName: "sql" },
+      { name: "FastAPI", iconName: "fastapi" },
     ],
   },
   {
@@ -33,6 +34,7 @@ const skillsCategories = [
       { name: "PyTorch", iconName: "pytorch" },
       { name: "OpenCV", iconName: "opencv" },
       { name: "Hugging Face Transformers", iconName: "huggingface" },
+      { name: "LangGraph", iconName: "langgraph" },
     ],
   },
   {
@@ -43,6 +45,7 @@ const skillsCategories = [
       { name: "Git", iconName: "git" },
       { name: "PostgreSQL", iconName: "postgress" },
       { name: "MLflow", iconName: "mlflow" },
+      { name: "Redis", iconName: "redis" },
     ],
   },
   {
@@ -50,6 +53,7 @@ const skillsCategories = [
     icon: Cloud,
     skills: [
       { name: "AWS SageMaker", iconName: "aws" },
+      { name: "Supabase", iconName: "supabase" },
     ],
   },
   {
@@ -140,13 +144,13 @@ export default function Home() {
                         key={skill.name}
                         className="flex items-center gap-3 rounded-lg p-2 transition-all duration-200 hover:bg-muted/50 hover:scale-[1.02]"
                       >
-                        <div className="icon-container-enhanced flex h-8 w-8 items-center justify-center rounded-md p-1.5">
+                        <div className="icon-container-enhanced flex h-8 w-8 items-center justify-center rounded-md p-1">
                           <ThemedIcon
                             name={skill.iconName}
                             alt={`${skill.name} logo`}
-                            width={18}
-                            height={18}
-                            className="themed-icon h-[18px] w-[18px] object-contain"
+                            width={24}
+                            height={24}
+                            className="themed-icon h-6 w-6 object-contain"
                           />
                         </div>
                         <span className="text-sm font-medium text-foreground/90 hover:text-foreground transition-colors">{skill.name}</span>
