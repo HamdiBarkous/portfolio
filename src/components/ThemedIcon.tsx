@@ -58,7 +58,7 @@ export function ThemedIcon({ name, alt, width = 20, height = 20, className }: Th
   if (!mounted) {
     return (
       <div 
-        className={className}
+        className={`${className} animate-pulse bg-muted/30 rounded-sm`}
         style={{ width, height }}
         aria-label={alt}
       />

@@ -138,18 +138,18 @@ export default function Home() {
                     {category.skills.map((skill) => (
                       <div
                         key={skill.name}
-                        className="flex items-center gap-3 rounded-lg p-2 transition-colors hover:bg-muted/50"
+                        className="flex items-center gap-3 rounded-lg p-2 transition-all duration-200 hover:bg-muted/50 hover:scale-[1.02]"
                       >
-                        <div className="flex h-8 w-8 items-center justify-center rounded-md bg-muted p-1">
+                        <div className="icon-container-enhanced flex h-8 w-8 items-center justify-center rounded-md p-1.5">
                           <ThemedIcon
                             name={skill.iconName}
                             alt={`${skill.name} logo`}
-                            width={20}
-                            height={20}
-                            className="h-5 w-5 object-contain"
+                            width={18}
+                            height={18}
+                            className="themed-icon h-[18px] w-[18px] object-contain"
                           />
                         </div>
-                        <span className="text-sm font-medium text-foreground">{skill.name}</span>
+                        <span className="text-sm font-medium text-foreground/90 hover:text-foreground transition-colors">{skill.name}</span>
                       </div>
                     ))}
                   </div>
