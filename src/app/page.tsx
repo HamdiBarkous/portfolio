@@ -29,9 +29,8 @@ const skillsCategories = [
     name: "ML/AI Frameworks",
     icon: BrainCircuit,
     skills: [
-      { name: "TensorFlow", iconName: "tensorflow" },
       { name: "PyTorch", iconName: "pytorch" },
-      { name: "OpenCV", iconName: "opencv" },
+      { name: "TensorFlow", iconName: "tensorflow" },
       { name: "Hugging Face Transformers", iconName: "huggingface" },
       { name: "LangGraph", iconName: "langgraph" },
     ],
