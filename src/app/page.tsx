@@ -15,36 +15,30 @@ import {
   WandSparkles, // Icon for AI Dev
 } from 'lucide-react';
 
-// Updated Skills Data with icon names for theme-aware rendering
+// Enhanced Skills Data with better organization and balance
 const skillsCategories = [
-  {
-    name: "Programming Languages",
-    icon: CodeXml,
-    skills: [
-      { name: "Python", iconName: "python" },
-      { name: "SQL", iconName: "sql" },
-    ],
-  },
   {
     name: "ML/AI Frameworks",
     icon: BrainCircuit,
     skills: [
       { name: "PyTorch", iconName: "pytorch" },
       { name: "TensorFlow", iconName: "tensorflow" },
-      { name: "Hugging Face Transformers", iconName: "huggingface" },
+      { name: "Hugging Face", iconName: "huggingface" },
       { name: "LangGraph", iconName: "langgraph" },
     ],
   },
   {
-    name: "Backend & APIs",
+    name: "Backend & Development",
     icon: ServerCog,
     skills: [
+      { name: "Python", iconName: "python" },
       { name: "FastAPI", iconName: "fastapi" },
       { name: "MLflow", iconName: "mlflow" },
+      { name: "SQL", iconName: "sql" },
     ],
   },
   {
-    name: "Databases & Storage",
+    name: "Data & Storage",
     icon: Database,
     skills: [
       { name: "PostgreSQL", iconName: "postgress" },
@@ -53,7 +47,7 @@ const skillsCategories = [
     ],
   },
   {
-    name: "Cloud & MLOps",
+    name: "Cloud & DevOps",
     icon: Cloud,
     skills: [
       { name: "AWS SageMaker", iconName: "aws" },
@@ -62,7 +56,7 @@ const skillsCategories = [
     ],
   },
   {
-    name: "AI-Enhanced Development",
+    name: "AI-Enhanced Tools",
     icon: WandSparkles,
     skills: [
       { name: "Cursor", iconName: "cursor" },
@@ -127,29 +121,32 @@ export default function Home() {
             Technical Skills
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
             {skillsCategories.map((category) => (
               <div
                 key={category.name}
-                className="group relative overflow-hidden rounded-xl border border-border/30 bg-background/50 p-6 shadow-sm transition-all hover:shadow-md hover:border-primary/30"
+                className="group relative overflow-hidden rounded-2xl border border-border/20 bg-card/50 backdrop-blur-sm p-8 shadow-lg transition-all duration-300 hover:shadow-xl hover:border-primary/40 hover:-translate-y-1"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 transition-opacity group-hover:opacity-100" />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/8 to-secondary/8 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary/60 to-secondary/60 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
                 
                 <div className="relative z-10">
-                  <div className="flex items-center gap-3 mb-4">
-                    <category.icon className="h-6 w-6 text-primary" />
-                    <h3 className="text-xl font-semibold text-foreground">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 border border-primary/20 group-hover:bg-primary/15 transition-colors">
+                      <category.icon className="h-6 w-6 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
                       {category.name}
                     </h3>
                   </div>
                   
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="flex flex-wrap gap-3">
                     {category.skills.map((skill) => (
                       <div
                         key={skill.name}
-                        className="flex items-center gap-3 rounded-lg p-2 transition-all duration-200 hover:bg-muted/50 hover:scale-[1.02]"
+                        className="group/skill flex items-center gap-3 rounded-xl p-3 bg-background/60 border border-border/30 transition-all duration-200 hover:bg-background/80 hover:border-primary/30 hover:shadow-md hover:scale-105"
                       >
-                        <div className="icon-container-enhanced flex h-8 w-8 items-center justify-center rounded-md p-1">
+                        <div className="icon-container-enhanced flex h-9 w-9 items-center justify-center rounded-lg p-1">
                           <ThemedIcon
                             name={skill.iconName}
                             alt={`${skill.name} logo`}
@@ -158,7 +155,7 @@ export default function Home() {
                             className="themed-icon h-6 w-6 object-contain"
                           />
                         </div>
-                        <span className="text-sm font-medium text-foreground/90 hover:text-foreground transition-colors">{skill.name}</span>
+                        <span className="text-sm font-semibold text-foreground/85 group-hover/skill:text-foreground transition-colors whitespace-nowrap">{skill.name}</span>
                       </div>
                     ))}
                   </div>
