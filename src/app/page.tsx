@@ -93,7 +93,7 @@ const featuredProjects = [
     prize: '$5,000',
     rank: '1st/76',
     icon: Trophy,
-    color: 'text-yellow-600 bg-yellow-500/10'
+    color: 'text-orange-600 bg-orange-500/10'
   },
   {
     title: 'IEEE Smart Cities Publication',
@@ -177,10 +177,6 @@ export default function Home() {
               My Work & Achievements
             </h2>
             
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
-              Explore my professional journey through work experience and innovative projects that showcase my expertise in machine learning and AI.
-            </p>
-
             {/* Quick Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-12">
               {stats.map((stat, index) => {
@@ -253,12 +249,12 @@ export default function Home() {
 
             {/* Projects Section */}
             <div className="group relative overflow-hidden rounded-2xl bg-card border border-border shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02]">
-              <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent"></div>
               <div className="relative p-8 md:p-10">
                 
                 {/* Header */}
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="p-4 rounded-xl bg-secondary/10 text-secondary">
+                  <div className="p-4 rounded-xl bg-primary/10 text-primary">
                     <Trophy className="w-8 h-8" />
                   </div>
                   <div>
@@ -281,7 +277,7 @@ export default function Home() {
                           <p className="text-xs text-muted-foreground">{project.type}</p>
                         </div>
                         <div className="text-right">
-                          <div className="text-sm font-bold text-primary">
+                          <div className="text-sm font-bold text-foreground">
                             {project.prize || project.venue}
                           </div>
                           <div className="text-xs text-muted-foreground">

@@ -151,7 +151,7 @@ export default function ProjectsPage() {
               <div className="text-sm text-muted-foreground">Competition Wins</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-secondary">${totalPrizeMoney.toLocaleString()}</div>
+              <div className="text-3xl font-bold text-foreground">${totalPrizeMoney.toLocaleString()}</div>
               <div className="text-sm text-muted-foreground">Prize Money</div>
             </div>
             <div className="text-center">
@@ -159,7 +159,7 @@ export default function ProjectsPage() {
               <div className="text-sm text-muted-foreground">Total Competitors</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-secondary">1</div>
+              <div className="text-3xl font-bold text-foreground">1</div>
               <div className="text-sm text-muted-foreground">IEEE Publication</div>
             </div>
           </div>
@@ -247,7 +247,7 @@ export default function ProjectsPage() {
                             <div className="text-xs text-muted-foreground">Rank</div>
                           </div>
                           <div className="text-center">
-                            <div className="text-lg font-bold text-secondary">{project.stats.participants}</div>
+                            <div className="text-lg font-bold text-foreground">{project.stats.participants}</div>
                             <div className="text-xs text-muted-foreground">Participants</div>
                           </div>
                           <div className="text-center">
@@ -263,7 +263,7 @@ export default function ProjectsPage() {
                             <div className="text-xs text-muted-foreground">Venue</div>
                           </div>
                           <div className="text-center">
-                            <div className="text-lg font-bold text-secondary">{project.stats.impact}</div>
+                            <div className="text-lg font-bold text-foreground">{project.stats.impact}</div>
                             <div className="text-xs text-muted-foreground">Scope</div>
                           </div>
                           <div className="text-center">

@@ -83,7 +83,7 @@ export default function ExperiencePage() {
               <div className="text-sm text-muted-foreground">Years Experience</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-secondary">10M+</div>
+              <div className="text-3xl font-bold text-foreground">10M+</div>
               <div className="text-sm text-muted-foreground">Data Points Processed</div>
             </div>
             <div className="text-center">
@@ -165,8 +165,8 @@ export default function ExperiencePage() {
                   {/* Achievements */}
                   <div className="mb-6">
                     <div className="flex items-center gap-2 mb-3">
-                      <Award className="w-4 h-4 text-secondary" />
-                      <span className="text-sm font-semibold text-secondary">Key Achievements</span>
+                      <Award className="w-4 h-4 text-foreground" />
+                      <span className="text-sm font-semibold text-foreground">Key Achievements</span>
                     </div>
                     <ul className="space-y-2">
                       {experience.achievements.map((achievement, i) => (
