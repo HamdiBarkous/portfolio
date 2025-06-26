@@ -24,9 +24,6 @@ export default function Header() {
           <Link href="/" className={getLinkClassName('/')}>
             Home
           </Link>
-          <Link href="/work" className={getLinkClassName('/work')}>
-            Work
-          </Link>
           <Link href="/experience" className={getLinkClassName('/experience')}>
             Experience
           </Link>
