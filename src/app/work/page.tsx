@@ -1,201 +1,340 @@
-import TimelineCard from '@/components/TimelineCard';
-import type { Metadata } from 'next';
+"use client";
 
-export const metadata: Metadata = {
-  title: "Work | Hamdi Barkous",
-  description: "Explore work experience, projects, and achievements by Hamdi Barkous.",
-};
+import { useState } from 'react';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Award, Briefcase, BookOpen, ExternalLink, Calendar, Trophy, Target } from 'lucide-react';
+import Link from 'next/link';
 
-// Data extracted from resume.tex
 const workData = [
-  // Experience
   {
+    id: 1,
     type: 'experience' as const,
     title: 'FinGenesis',
-    subtitle: 'ML Engineer',
-    dateOrPeriod: '2024 – Present',
-    description: [
-      'Designed and implemented DL/ML models to predict price movements of financial symbols.',
-      'Developed an agentic framework for ticker-based sentiment analysis, enabling actionable insights.',
-      'Designed and implemented rule-based and LLM-based trading strategies with explainability.',
-      'Designed a backtesting framework for evaluating trading strategies.',
-      'Implemented various algorithms from the literature for forecasts post-processing.',
-      'Improved data pipelines efficiencies and speed.',
+    role: 'ML Engineer',
+    period: '2024 – Present',
+    impact: 'Built DL/ML models for financial prediction with trading strategies',
+    description: 'Designed and implemented deep learning models to predict price movements, developed agentic frameworks for sentiment analysis, and created backtesting systems for trading strategies.',
+    achievements: [
+      'Implemented DL/ML models for financial symbol prediction',
+      'Built agentic framework for ticker-based sentiment analysis',
+      'Designed rule-based and LLM trading strategies',
+      'Created comprehensive backtesting framework',
+      'Optimized data pipeline efficiency and speed'
     ],
-    keywords: ['Deep Learning', 'Machine Learning', 'Finance', 'Agentic Frameworks', 'Sentiment Analysis', 'LLM', 'Trading', 'Backtesting', 'Data Pipelines'],
+    skills: ['Deep Learning', 'Machine Learning', 'Finance', 'LLM', 'Trading', 'Python'],
+    status: 'ongoing',
+    featured: true
   },
   {
+    id: 2,
     type: 'experience' as const,
     title: 'XAI Lab - Concordia University',
-    subtitle: 'AI Research Scholar',
-    dateOrPeriod: 'May 2023 – Sep 2023',
-    description: [
-      'Worked on midterm electric load forecasting by implementing and validating a hybrid ETS+RD-LSTM model.',
-      'Conducted an in-depth literature review of state-of-the-art forecasting methods, identifying key limitations and opportunities for improvement.',
-      'Enhanced the baseline model\'s architecture and performance through iterative experimentation and optimization.',
-      'Led a comprehensive ablation study to understand the individual contributions of each model component, and benchmarked performance against other advanced deep learning and statistical models.',
+    role: 'AI Research Scholar',
+    period: 'May 2023 – Sep 2023',
+    impact: 'Advanced electric load forecasting with hybrid ETS+RD-LSTM model',
+    description: 'Conducted cutting-edge research on midterm electric load forecasting, implementing and validating a novel hybrid model combining ETS and residual dilated LSTM architectures.',
+    achievements: [
+      'Implemented hybrid ETS+RD-LSTM forecasting model',
+      'Conducted comprehensive literature review of SOTA methods',
+      'Enhanced model architecture through iterative optimization',
+      'Led ablation study comparing deep learning approaches'
     ],
-    keywords: ['LSTM', 'Dilation', 'Residual Connection', 'ETS', 'Forecasting', 'Time Series'],
+    skills: ['LSTM', 'Time Series', 'Research', 'ETS', 'Forecasting'],
+    status: 'completed'
   },
-  // Publications
   {
+    id: 3,
+    type: 'competition' as const,
+    title: 'Unifi PDF Lifting Competition',
+    role: '1st Place Winner',
+    period: 'Feb 2024',
+    impact: '$5,000 prize • Ranked 1/76 participants',
+    description: 'Developed an advanced solution for extracting structured data from PDF documents using LLM and RAG techniques.',
+    achievements: [
+      'Won 1st place out of 76 participants',
+      'Earned $5,000 in prize money',
+      'Built production-ready PDF extraction system',
+      'Implemented LLM-powered document processing'
+    ],
+    skills: ['LLM', 'RAG', 'PDF Processing', 'NLP'],
+    status: 'won',
+    featured: true,
+    link: 'https://github.com/HamdiBarkous/Unifi-Value-Frameworks-PDF-Lifting-Competition'
+  },
+  {
+    id: 4,
+    type: 'competition' as const,
+    title: 'DataDrive2030 Early Learning Challenge',
+    role: '1st Place Winner',
+    period: 'Jan 2023',
+    impact: '$3,000 prize • Ranked 1/336 participants',
+    description: 'Predicted early learning outcomes using advanced machine learning techniques and feature engineering.',
+    achievements: [
+      'Won 1st place out of 336 participants',
+      'Earned $3,000 in prize money',
+      'Built predictive models for education outcomes',
+      'Advanced feature engineering and model optimization'
+    ],
+    skills: ['Machine Learning', 'XGBoost', 'Predictive Modeling'],
+    status: 'won',
+    featured: true,
+    link: 'https://github.com/HamdiBarkous/DataDrive2030-Early-Learning-Predictors-Challenge'
+  },
+  {
+    id: 5,
     type: 'publication' as const,
-    title: 'A Comprehensive Analysis of a Hybrid Deep Learning Model for Midterm Electric Load Forecasting',
-    subtitle: '21st IEEE International Conference on Smart Cities, Australia',
-    dateOrPeriod: 'Dec 13, 2023',
-    description: 'Authors: Barkous, H., Amayri, M., & Bouguila, N.',
-    keywords: ['Deep Learning', 'Load Forecasting', 'Hybrid Model', 'IEEE'],
-  },
-  // AI Competitions
-  {
-    type: 'competition' as const,
-    title: 'Unifi Value Frameworks PDF Lifting Competition ($5000)',
-    subtitle: 'Ranked 1/76',
-    dateOrPeriod: 'Feb 2024',
-    description: 'Developed a solution for extracting structured data from PDF documents.',
-    keywords: ['LLM', 'RAG', 'PDF Extraction'],
-    link: 'https://github.com/HamdiBarkous/Unifi-Value-Frameworks-PDF-Lifting-Competition',
+    title: 'Hybrid Deep Learning Model for Electric Load Forecasting',
+    role: 'Lead Author',
+    period: 'Dec 2023',
+    impact: 'Published at IEEE International Conference on Smart Cities',
+    description: 'A comprehensive analysis of hybrid deep learning approaches for midterm electric load forecasting, published at a premier IEEE conference.',
+    achievements: [
+      'Published at 21st IEEE International Conference',
+      'Presented at Smart Cities conference in Australia',
+      'Novel hybrid model architecture contribution',
+      'Comprehensive performance analysis and benchmarking'
+    ],
+    skills: ['Deep Learning', 'Load Forecasting', 'Research'],
+    status: 'published'
   },
   {
+    id: 6,
     type: 'competition' as const,
-    title: 'DataDrive2030 Early Learning Predictors Challenge ($3000)',
-    subtitle: 'Ranked 1/336',
-    dateOrPeriod: 'Jan 2023',
-    description: 'Predicted early learning outcomes based on provided datasets.',
-    keywords: ['Machine Learning', 'XGBoost', 'Predictive Modeling'],
-    link: 'https://github.com/HamdiBarkous/DataDrive2030-Early-Learning-Predictors-Challenge',
-  },
-  {
-    type: 'competition' as const,
-    title: 'Carbon Dioxide Prediction Challenge ($2100)',
-    subtitle: 'Ranked 1/441',
-    dateOrPeriod: 'Mar 2022',
-    description: 'Forecasted carbon dioxide levels using time series data.',
-    keywords: ['Machine Learning', 'Time Series Forecasting', 'Environment'],
-    link: 'https://github.com/HamdiBarkous/UmojaHack-Africa-2023-Carbon-Dioxide-Prediction-Challenge',
-  },
+    title: 'Carbon Dioxide Prediction Challenge',
+    role: '1st Place Winner',
+    period: 'Mar 2022',
+    impact: '$2,100 prize • Ranked 1/441 participants',
+    description: 'Forecasted carbon dioxide levels using time series analysis and machine learning techniques.',
+    achievements: [
+      'Won 1st place out of 441 participants',
+      'Earned $2,100 in prize money',
+      'Environmental impact modeling',
+      'Advanced time series forecasting'
+    ],
+    skills: ['Time Series Forecasting', 'Environmental Modeling'],
+    status: 'won',
+    link: 'https://github.com/HamdiBarkous/UmojaHack-Africa-2023-Carbon-Dioxide-Prediction-Challenge'
+  }
+];
+
+const categories = [
+  { id: 'all', label: 'All Work', icon: Target },
+  { id: 'experience', label: 'Experience', icon: Briefcase },
+  { id: 'competition', label: 'Competitions', icon: Trophy },
+  { id: 'publication', label: 'Publications', icon: BookOpen }
 ];
 
 export default function WorkPage() {
-  // Separate experience and projects/competitions
-  const experiences = workData.filter(item => item.type === 'experience');
-  const projects = workData.filter(item => item.type === 'publication' || item.type === 'competition');
+  const [activeCategory, setActiveCategory] = useState('all');
+  
+  const filteredWork = activeCategory === 'all' 
+    ? workData 
+    : workData.filter(item => item.type === activeCategory);
 
-  // Sort by date (most recent first)
-  const sortByDate = (a: any, b: any) => {
-    // Extract year from dateOrPeriod for sorting
-    const getYear = (dateStr: string) => {
-      const match = dateStr.match(/(\d{4})/g);
-      return match ? Math.max(...match.map(Number)) : 0;
-    };
-    return getYear(b.dateOrPeriod) - getYear(a.dateOrPeriod);
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case 'ongoing': return 'bg-blue-500/10 text-blue-600 border-blue-500/20';
+      case 'won': return 'bg-green-500/10 text-green-600 border-green-500/20';
+      case 'completed': return 'bg-purple-500/10 text-purple-600 border-purple-500/20';
+      case 'published': return 'bg-orange-500/10 text-orange-600 border-orange-500/20';
+      default: return 'bg-muted-foreground/10 text-muted-foreground border-muted-foreground/20';
+    }
   };
 
-  const sortedExperiences = [...experiences].sort(sortByDate);
-  const sortedProjects = [...projects].sort(sortByDate);
+  const getTypeIcon = (type: string) => {
+    switch (type) {
+      case 'experience': return Briefcase;
+      case 'competition': return Trophy;
+      case 'publication': return BookOpen;
+      default: return Target;
+    }
+  };
 
   return (
-    <div className="container mx-auto px-4 py-12 md:py-16 lg:py-20 relative overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-20 left-1/4 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-secondary/5 rounded-full blur-3xl animate-pulse delay-1000" />
-      </div>
-
-      {/* Enhanced header with animations */}
-      <div className="text-center mb-12 md:mb-16">
-        <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground opacity-0 animate-fade-in-up" 
-            style={{ animationDelay: '0.1s', animationFillMode: 'forwards' }}>
-          Work & Projects
-        </h1>
-        <div className="mt-4 opacity-0 animate-fade-in-up" 
-             style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full" />
-          <p className="text-muted-foreground mt-4 text-lg">
-            A timeline of professional experience and project achievements
-          </p>
-        </div>
-      </div>
-      
-      {/* Enhanced timeline container */}
-      <div className="relative max-w-7xl mx-auto">
-        {/* Enhanced central timeline line with gradient and glow */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-primary/20 via-primary/40 to-primary/20 rounded-full opacity-0 animate-fade-in" 
-             style={{ animationDelay: '0.5s', animationFillMode: 'forwards' }}>
-          {/* Animated glow effect */}
-          <div className="absolute inset-0 w-1 bg-gradient-to-b from-primary/30 via-primary/60 to-primary/30 rounded-full blur-sm animate-pulse" />
-          
-          {/* Date markers on timeline */}
-          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-2">
-            <div className="bg-background border-2 border-primary rounded-full px-3 py-1 text-xs font-semibold text-primary shadow-lg">
-              2024
-            </div>
-          </div>
-          <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-2">
-            <div className="bg-background border-2 border-primary rounded-full px-3 py-1 text-xs font-semibold text-primary shadow-lg">
-              2023
-            </div>
-          </div>
-          <div className="absolute bottom-1/4 left-1/2 transform -translate-x-1/2 -translate-y-2">
-            <div className="bg-background border-2 border-muted-foreground rounded-full px-3 py-1 text-xs font-semibold text-muted-foreground shadow-lg">
-              2022
-            </div>
-          </div>
-        </div>
+    <div className="min-h-screen bg-gradient-to-br from-background to-muted/20">
+      <div className="container mx-auto px-4 py-12 md:py-20">
         
-        {/* Timeline content with enhanced animations */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 relative">
-          {/* Left column - Experience with staggered animations */}
-          <div className="space-y-8">
-            <div className="text-center lg:text-right mb-8 opacity-0 animate-slide-in-left" 
-                 style={{ animationDelay: '0.7s', animationFillMode: 'forwards' }}>
-              <div className="relative inline-block">
-                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2 relative z-10">
-                  Experience
-                </h2>
-                <div className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-blue-500/30 to-blue-600/30 rounded-full" />
-              </div>
-              <p className="text-muted-foreground mt-4">Professional roles and research positions</p>
-            </div>
-            {sortedExperiences.map((item, index) => (
-              <div key={`exp-${index}`} className="lg:flex lg:justify-end">
-                <div className="lg:max-w-lg">
-                  <TimelineCard {...item} side="left" index={index} />
-                </div>
-              </div>
-            ))}
+        {/* Hero Section */}
+        <div className="text-center mb-16">
+          <div className="inline-block mb-6">
+            <Badge variant="outline" className="px-4 py-2 text-sm font-medium">
+              <Award className="w-4 h-4 mr-2" />
+              Portfolio Showcase
+            </Badge>
           </div>
           
-          {/* Right column - Projects & Publications with staggered animations */}
-          <div className="space-y-8">
-            <div className="text-center lg:text-left mb-8 opacity-0 animate-slide-in-right" 
-                 style={{ animationDelay: '0.9s', animationFillMode: 'forwards' }}>
-              <div className="relative inline-block">
-                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2 relative z-10">
-                  Projects & Publications
-                </h2>
-                <div className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-purple-500/30 to-green-500/30 rounded-full" />
-              </div>
-              <p className="text-muted-foreground mt-4">Competition wins and research publications</p>
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text">
+            My Work & Achievements
+          </h1>
+          
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
+            Explore my professional journey through impactful projects, competition victories, and research contributions in machine learning and AI.
+          </p>
+
+          {/* Stats Summary */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto mb-12">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-primary">3</div>
+              <div className="text-sm text-muted-foreground">Competition Wins</div>
             </div>
-            {sortedProjects.map((item, index) => (
-              <div key={`proj-${index}`} className="lg:flex lg:justify-start">
-                <div className="lg:max-w-lg">
-                  <TimelineCard {...item} side="right" index={index + sortedExperiences.length} />
-                </div>
-              </div>
-            ))}
+            <div className="text-center">
+              <div className="text-3xl font-bold text-secondary">$10K+</div>
+              <div className="text-sm text-muted-foreground">Prize Money</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-primary">2</div>
+              <div className="text-sm text-muted-foreground">Years Experience</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-secondary">1</div>
+              <div className="text-sm text-muted-foreground">IEEE Publication</div>
+            </div>
           </div>
         </div>
 
-        {/* Progress indicator */}
-        <div className="fixed bottom-8 right-8 z-50 opacity-0 animate-fade-in" 
-             style={{ animationDelay: '1.5s', animationFillMode: 'forwards' }}>
-          <div className="bg-background/80 backdrop-blur-sm border border-border rounded-full p-2 shadow-lg">
-            <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+        {/* Category Filter */}
+        <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-12">
+          {categories.map((category) => {
+            const Icon = category.icon;
+            const isActive = activeCategory === category.id;
+            
+            return (
+              <button
+                key={category.id}
+                onClick={() => setActiveCategory(category.id)}
+                className={`flex items-center gap-2 px-4 md:px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                  isActive
+                    ? 'bg-primary text-primary-foreground shadow-lg scale-105'
+                    : 'bg-card hover:bg-muted border border-border hover:border-primary/50'
+                }`}
+              >
+                <Icon className="w-4 h-4" />
+                <span className="text-sm md:text-base">{category.label}</span>
+                <Badge variant="secondary" className="ml-1 text-xs">
+                  {category.id === 'all' ? workData.length : workData.filter(item => item.type === category.id).length}
+                </Badge>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Work Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {filteredWork.map((item, index) => {
+            const Icon = getTypeIcon(item.type);
+            
+            return (
+              <div
+                key={item.id}
+                className={`group relative overflow-hidden rounded-2xl bg-card border border-border/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] ${
+                  item.featured ? 'ring-2 ring-primary/20 shadow-primary/10' : ''
+                }`}
+                style={{
+                  animationDelay: `${index * 100}ms`,
+                  animation: 'fadeInUp 0.6s ease-out forwards'
+                }}
+              >
+                {item.featured && (
+                  <div className="absolute top-4 right-4 z-10">
+                    <Badge className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white border-0">
+                      <Trophy className="w-3 h-3 mr-1" />
+                      Featured
+                    </Badge>
+                  </div>
+                )}
+
+                <div className="p-6 md:p-8">
+                  {/* Header */}
+                  <div className="flex items-start gap-4 mb-6">
+                    <div className="p-3 rounded-xl bg-primary/10 text-primary">
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                        {item.title}
+                      </h3>
+                      <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+                        <span className="font-medium">{item.role}</span>
+                        <span>•</span>
+                        <span className="flex items-center gap-1">
+                          <Calendar className="w-3 h-3" />
+                          {item.period}
+                        </span>
+                      </div>
+                      <div className={`inline-block px-3 py-1 rounded-full text-xs font-medium border ${getStatusColor(item.status)}`}>
+                        {item.status.charAt(0).toUpperCase() + item.status.slice(1)}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Impact */}
+                  <div className="mb-4">
+                    <div className="text-sm font-semibold text-primary mb-2">Impact & Results</div>
+                    <p className="text-foreground font-medium">{item.impact}</p>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                    {item.description}
+                  </p>
+
+                  {/* Skills */}
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {item.skills.map((skill) => (
+                      <Badge key={skill} variant="outline" className="text-xs">
+                        {skill}
+                      </Badge>
+                    ))}
+                  </div>
+
+                  {/* Action */}
+                  {item.link && (
+                    <Button asChild className="w-full group/btn">
+                      <Link href={item.link} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        View Project
+                        <div className="ml-auto opacity-0 group-hover/btn:opacity-100 transition-opacity">
+                          →
+                        </div>
+                      </Link>
+                    </Button>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Call to Action */}
+        <div className="text-center mt-16">
+          <div className="bg-card border border-border rounded-2xl p-8 md:p-12 max-w-2xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Collaborate?</h2>
+            <p className="text-muted-foreground mb-6">
+              I'm always excited to work on challenging ML projects and research opportunities.
+            </p>
+            <Button size="lg" asChild>
+              <Link href="/contact">
+                Get In Touch
+                <ExternalLink className="w-4 h-4 ml-2" />
+              </Link>
+            </Button>
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </div>
   );
 }
