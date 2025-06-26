@@ -29,50 +29,57 @@ import {
 // Enhanced Skills Data with better organization and balance
 const skillsCategories = [
   {
-    name: "ML/AI Frameworks",
-    icon: BrainCircuit,
-    skills: [
-      { name: "PyTorch", iconName: "pytorch" },
-      { name: "TensorFlow", iconName: "tensorflow" },
-      { name: "Hugging Face", iconName: "huggingface" },
-      { name: "LangGraph", iconName: "langgraph" },
-    ],
-  },
-  {
-    name: "Backend & Development",
-    icon: ServerCog,
+    name: "Programming Languages",
+    icon: CodeXml,
     skills: [
       { name: "Python", iconName: "python" },
-      { name: "FastAPI", iconName: "fastapi" },
-      { name: "MLflow", iconName: "mlflow" },
       { name: "SQL", iconName: "sql" },
     ],
   },
   {
-    name: "Data & Storage",
-    icon: Database,
+    name: "ML/AI Frameworks",
+    icon: BrainCircuit,
     skills: [
+      { name: "LangGraph", iconName: "langgraph" },
+      { name: "PyTorch", iconName: "pytorch" },
+      { name: "TensorFlow", iconName: "tensorflow" },
+      { name: "OpenCV", iconName: "opencv" },
+    ],
+  },
+  {
+    name: "API Development Stack",
+    icon: ServerCog,
+    skills: [
+      { name: "FastAPI", iconName: "fastapi" },
       { name: "PostgreSQL", iconName: "postgress" },
       { name: "Redis", iconName: "redis" },
       { name: "Supabase", iconName: "supabase" },
     ],
   },
   {
-    name: "Cloud & DevOps",
+    name: "ML Platforms & Tools",
+    icon: WandSparkles,
+    skills: [
+      { name: "Hugging Face", iconName: "huggingface" },
+      { name: "MLflow", iconName: "mlflow" },
+    ],
+  },
+  {
+    name: "DevOps & Cloud",
     icon: Cloud,
     skills: [
-      { name: "AWS SageMaker", iconName: "aws" },
+      { name: "AWS", iconName: "aws" },
       { name: "Docker", iconName: "docker" },
       { name: "Git", iconName: "git" },
     ],
   },
   {
-    name: "AI-Enhanced Tools",
-    icon: WandSparkles,
+    name: "Developer Tools",
+    icon: Code,
     skills: [
       { name: "Cursor", iconName: "cursor" },
       { name: "Cline", iconName: "cline" },
-      { name: "MCP Servers", iconName: "mcp" },
+      { name: "MCP", iconName: "mcp" },
     ],
   },
 ];
@@ -123,10 +130,10 @@ const stats = [
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-background to-muted/20">
-      <div className="container mx-auto px-4 py-12 md:py-16 lg:py-20">
+      <div className="container mx-auto px-4 py-8 md:py-12">
         
         {/* Hero Section */}
-        <section id="hero" className="mb-16 md:mb-20 lg:mb-24 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+        <section id="hero" className="mb-12 md:mb-16 flex flex-col md:flex-row items-center gap-8 md:gap-12">
           {/* Image */}
           <div className="flex-shrink-0">
             <Image
@@ -170,15 +177,15 @@ export default function Home() {
         </section>
 
         {/* Work Showcase Section */}
-        <section id="work-showcase" className="mb-16 md:mb-20 lg:mb-24">
-          <div className="text-center mb-12">
+        <section id="work-showcase" className="mb-12 md:mb-16">
+          <div className="text-center mb-8">
             
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text">
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text">
               My Work & Achievements
             </h2>
             
             {/* Quick Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-12">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-8">
               {stats.map((stat, index) => {
                 const Icon = stat.icon;
                 return (
@@ -303,8 +310,8 @@ export default function Home() {
         </section>
 
         {/* Skills Section - Enhanced Design */}
-        <section id="skills" className="mb-16 md:mb-20 lg:mb-24">
-          <h2 className="text-3xl font-bold text-center mb-8 md:mb-12 text-foreground">
+        <section id="skills" className="mb-12 md:mb-16">
+          <h2 className="text-3xl font-bold text-center mb-6 md:mb-8 text-foreground">
             Technical Skills
           </h2>
           
