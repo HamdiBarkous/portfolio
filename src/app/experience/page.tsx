@@ -47,9 +47,9 @@ const experienceData = [
 export default function ExperiencePage() {
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'current': return 'bg-green-500/10 text-green-600 border-green-500/20';
-      case 'completed': return 'bg-blue-500/10 text-blue-600 border-blue-500/20';
-      default: return 'bg-muted-foreground/10 text-muted-foreground border-muted-foreground/20';
+      case 'current': return 'badge-success';
+      case 'completed': return 'badge-info';
+      default: return 'bg-muted/30 text-muted-foreground border-border';
     }
   };
 

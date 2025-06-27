@@ -187,6 +187,73 @@
     filter: drop-shadow(0 2px 4px oklch(0 0 0 / 0.5)) contrast(1.2) brightness(1.15);
   }
 
+  /* Status Badge Styles - Better visibility in both themes */
+  .badge-success {
+    @apply bg-green-50 text-green-700 border-green-200;
+  }
+  
+  .dark .badge-success {
+    @apply bg-green-500/10 text-green-400 border-green-500/20;
+  }
+  
+  .badge-info {
+    @apply bg-blue-50 text-blue-700 border-blue-200;
+  }
+  
+  .dark .badge-info {
+    @apply bg-blue-500/10 text-blue-400 border-blue-500/20;
+  }
+  
+  .badge-warning {
+    @apply bg-orange-50 text-orange-700 border-orange-200;
+  }
+  
+  .dark .badge-warning {
+    @apply bg-orange-500/10 text-orange-400 border-orange-500/20;
+  }
+  
+  .badge-highlight {
+    @apply bg-emerald-50 text-emerald-700 border-emerald-200;
+  }
+  
+  .dark .badge-highlight {
+    @apply bg-emerald-500/10 text-emerald-400 border-emerald-500/20;
+  }
+
+  /* Achievement gradient badge with better contrast */
+  .badge-prize {
+    @apply bg-gradient-to-r from-yellow-400 to-orange-500 text-white border-0;
+  }
+  
+  .dark .badge-prize {
+    @apply bg-gradient-to-r from-yellow-500 to-orange-600 text-white border-0;
+  }
+
+  /* Gradient text with better light mode visibility */
+  .gradient-text {
+    @apply bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text;
+  }
+  
+  /* Ensure text gradient has good contrast in light mode */
+  .light .gradient-text {
+    background: linear-gradient(to right, 
+      oklch(from var(--foreground) calc(l * 0.8) c h),
+      oklch(from var(--primary) calc(l * 0.9) c h),
+      oklch(from var(--foreground) calc(l * 0.8) c h)
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+
+  /* Better contrast for small stat labels */
+  .stat-label {
+    @apply text-xs font-semibold text-foreground;
+  }
+  
+  .dark .stat-label {
+    @apply text-xs font-medium text-muted-foreground;
+  }
+
   /* Custom animations for enhanced UX */
   @keyframes fade-in-up {
     from {

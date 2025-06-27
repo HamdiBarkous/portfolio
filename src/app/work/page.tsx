@@ -21,7 +21,7 @@ const featuredProjects = [
     prize: '$5,000',
     rank: '1st/76',
     icon: Trophy,
-    color: 'text-yellow-600 bg-yellow-500/10'
+    color: 'badge-warning'
   },
   {
     title: 'IEEE Smart Cities Publication',
@@ -29,7 +29,7 @@ const featuredProjects = [
     venue: 'IEEE Conference',
     impact: 'International',
     icon: BookOpen,
-    color: 'text-blue-600 bg-blue-500/10'
+    color: 'badge-info'
   },
   {
     title: 'DataDrive2030 Challenge',
@@ -37,7 +37,7 @@ const featuredProjects = [
     prize: '$3,000',
     rank: '1st/336',
     icon: Trophy,
-    color: 'text-green-600 bg-green-500/10'
+    color: 'badge-success'
   }
 ];
 
@@ -109,7 +109,7 @@ export default function WorkPage() {
               {/* Current Role Highlight */}
               <div className="bg-muted/30 rounded-xl p-6 mb-6">
                 <div className="flex items-center gap-2 mb-3">
-                  <Badge className="bg-green-500/10 text-green-600 border-green-500/20">
+                  <Badge className="badge-success">
                     ● Current Role
                   </Badge>
                 </div>

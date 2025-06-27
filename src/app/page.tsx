@@ -99,7 +99,7 @@ const featuredProjects = [
     prize: 'Live Demo',
     rank: 'Featured',
     icon: Code,
-    color: 'text-emerald-600 bg-emerald-500/10'
+    color: 'badge-highlight'
   },
   {
     title: 'AI Hackathon Wins',
@@ -107,7 +107,7 @@ const featuredProjects = [
     venue: '$10,000+',
     impact: 'Multi-event',
     icon: Trophy,
-    color: 'text-orange-600 bg-orange-500/10'
+    color: 'badge-warning'
   },
   {
     title: 'IEEE Publication',
@@ -115,7 +115,7 @@ const featuredProjects = [
     venue: 'Conference',
     impact: 'International',
     icon: BookOpen,
-    color: 'text-blue-600 bg-blue-500/10'
+    color: 'badge-info'
   }
 ];
 
@@ -193,7 +193,7 @@ export default function Home() {
                 {/* Current Role Highlight */}
                 <div className="bg-muted/30 rounded-xl p-6 mb-6 flex-1">
                   <div className="flex items-center gap-2 mb-3">
-                    <Badge className="bg-green-500/10 text-green-600 border-green-500/20">
+                    <Badge className="badge-success">
                       ● Current Role
                     </Badge>
                   </div>

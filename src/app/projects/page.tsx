@@ -71,7 +71,7 @@ const projectsData = [
   {
     id: 4,
     type: 'publication',
-    title: 'Hybrid Deep Learning Model for Electric Load Forecasting',
+    title: 'A Comprehensive Analysis of a Hybrid Deep Learning Model for Midterm Electric Load Forecasting',
     subtitle: 'IEEE International Conference Publication',
     period: 'Dec 2023',
     impact: 'Published at IEEE Smart Cities Conference',
@@ -84,7 +84,7 @@ const projectsData = [
     ],
     skills: ['Deep Learning', 'Load Forecasting', 'Research', 'PyTorch', 'Time Series'],
     status: 'published',
-    link: '#', // Add actual link when available
+    link: 'https://ieeexplore.ieee.org/document/10466962',
     stats: { venue: 'IEEE', impact: 'International', type: 'Conference' }
   },
   {
@@ -124,11 +124,11 @@ export default function ProjectsPage() {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'won': return 'bg-green-500/10 text-green-600 border-green-500/20';
-      case 'published': return 'bg-blue-500/10 text-blue-600 border-blue-500/20';
-      case 'live': return 'bg-emerald-500/10 text-emerald-600 border-emerald-500/20';
-      case 'ongoing': return 'bg-orange-500/10 text-orange-600 border-orange-500/20';
-      default: return 'bg-muted-foreground/10 text-muted-foreground border-muted-foreground/20';
+      case 'won': return 'badge-success';
+      case 'published': return 'badge-info';
+      case 'live': return 'badge-highlight';
+      case 'ongoing': return 'badge-warning';
+      default: return 'bg-muted/30 text-muted-foreground border-border';
     }
   };
 
@@ -217,7 +217,7 @@ export default function ProjectsPage() {
               >
                 {project.featured && (
                   <div className="absolute top-4 right-4 z-10">
-                    <Badge className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white border-0">
+                    <Badge className="badge-prize">
                       <Award className="w-3 h-3 mr-1" />
                       Featured
                     </Badge>
@@ -256,15 +256,15 @@ export default function ProjectsPage() {
                         <>
                           <div className="text-center">
                             <div className="text-lg font-bold text-primary">{project.stats.rank}</div>
-                            <div className="text-xs text-muted-foreground">Rank</div>
+                            <div className="stat-label">Rank</div>
                           </div>
                           <div className="text-center">
                             <div className="text-lg font-bold text-foreground">{project.stats.participants}</div>
-                            <div className="text-xs text-muted-foreground">Participants</div>
+                            <div className="stat-label">Participants</div>
                           </div>
                           <div className="text-center">
                             <div className="text-lg font-bold text-primary">{project.stats.prize}</div>
-                            <div className="text-xs text-muted-foreground">Prize</div>
+                            <div className="stat-label">Prize</div>
                           </div>
                         </>
                       )}
@@ -272,15 +272,15 @@ export default function ProjectsPage() {
                         <>
                           <div className="text-center">
                             <div className="text-lg font-bold text-primary">{project.stats.venue}</div>
-                            <div className="text-xs text-muted-foreground">Venue</div>
+                            <div className="stat-label">Venue</div>
                           </div>
                           <div className="text-center">
                             <div className="text-lg font-bold text-foreground">{project.stats.impact}</div>
-                            <div className="text-xs text-muted-foreground">Scope</div>
+                            <div className="stat-label">Scope</div>
                           </div>
                           <div className="text-center">
                             <div className="text-lg font-bold text-primary">{project.stats.type}</div>
-                            <div className="text-xs text-muted-foreground">Type</div>
+                            <div className="stat-label">Type</div>
                           </div>
                         </>
                       )}
@@ -288,15 +288,15 @@ export default function ProjectsPage() {
                         <>
                           <div className="text-center">
                             <div className="text-lg font-bold text-primary">{project.stats.frontend}</div>
-                            <div className="text-xs text-muted-foreground">Frontend</div>
+                            <div className="stat-label">Frontend</div>
                           </div>
                           <div className="text-center">
                             <div className="text-lg font-bold text-foreground">{project.stats.backend}</div>
-                            <div className="text-xs text-muted-foreground">Backend</div>
+                            <div className="stat-label">Backend</div>
                           </div>
                           <div className="text-center">
                             <div className="text-lg font-bold text-primary">{project.stats.deployment}</div>
-                            <div className="text-xs text-muted-foreground">Deployment</div>
+                            <div className="stat-label">Deployment</div>
                           </div>
                         </>
                       )}
@@ -333,24 +333,18 @@ export default function ProjectsPage() {
                   {/* Action */}
                   <div className="space-y-3">
                     {project.link && project.link !== '#' && (
-                      <Button asChild className="w-full group/btn">
+                      <Button asChild className="w-full">
                         <Link href={project.link} target="_blank" rel="noopener noreferrer">
                           <ExternalLink className="w-4 h-4 mr-2" />
-                          View Source Code
-                          <div className="ml-auto opacity-0 group-hover/btn:opacity-100 transition-opacity">
-                            →
-                          </div>
+                          {project.type === 'publication' ? 'View Paper' : 'View Source Code'}
                         </Link>
                       </Button>
                     )}
                     {project.liveUrl && (
-                      <Button asChild variant="outline" className="w-full group/btn">
+                      <Button asChild className="w-full">
                         <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                           <ExternalLink className="w-4 h-4 mr-2" />
                           View Live Demo
-                          <div className="ml-auto opacity-0 group-hover/btn:opacity-100 transition-opacity">
-                            →
-                          </div>
                         </Link>
                       </Button>
                     )}
