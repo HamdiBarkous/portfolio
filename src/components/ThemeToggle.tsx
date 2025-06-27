@@ -1,40 +1,71 @@
 "use client"
 
 import * as React from "react"
-import { Moon, Sun } from "lucide-react"
+import { Moon, Sun, Monitor } from "lucide-react"
 import { useTheme } from "next-themes"
 
 import { Button } from "@/components/ui/button"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
 
 export function ThemeToggle() {
-  const { setTheme } = useTheme()
+  const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = React.useState(false)
+
+  // Only render after mounting to avoid hydration mismatch
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  const cycleTheme = () => {
+    if (theme === "system") {
+      setTheme("light")
+    } else if (theme === "light") {
+      setTheme("dark")
+    } else {
+      setTheme("system")
+    }
+  }
+
+  const getIcon = () => {
+    switch (theme) {
+      case "light":
+        return <Sun className="h-[1.2rem] w-[1.2rem]" />
+      case "dark":
+        return <Moon className="h-[1.2rem] w-[1.2rem]" />
+      default: // system
+        return <Monitor className="h-[1.2rem] w-[1.2rem]" />
+    }
+  }
+
+  const getLabel = () => {
+    switch (theme) {
+      case "light":
+        return "Light theme - click for dark"
+      case "dark":
+        return "Dark theme - click for system"
+      default: // system
+        return "System theme - click for light"
+    }
+  }
+
+  // Show a placeholder during SSR/hydration
+  if (!mounted) {
+    return (
+      <Button variant="outline" size="icon" disabled>
+        <Monitor className="h-[1.2rem] w-[1.2rem]" />
+        <span className="sr-only">Loading theme toggle</span>
+      </Button>
+    )
+  }
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon">
-          <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-          <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-          <span className="sr-only">Toggle theme</span>
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")}>
-          Light
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
-          Dark
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
-          System
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <Button 
+      variant="outline" 
+      size="icon" 
+      onClick={cycleTheme}
+      title={getLabel()}
+    >
+      {getIcon()}
+      <span className="sr-only">{getLabel()}</span>
+    </Button>
   )
 }
