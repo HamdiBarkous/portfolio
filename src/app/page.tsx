@@ -129,7 +129,7 @@ export default function Home() {
           {/* Image */}
           <div className="flex-shrink-0">
             <Image
-              src="/img/self.jpg" // Path relative to the public directory
+              src="/img/hamdi.png" // Path relative to the public directory
               alt="Hamdi Barkous"
               width={180} // Adjust size as needed
               height={180}
