@@ -172,12 +172,12 @@ export default function Home() {
 
         {/* Main Navigation Cards */}
         <section id="navigation" className="mb-12 md:mb-16">
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 md:items-stretch">
             
             {/* Experience Section */}
-            <div className="group relative overflow-hidden rounded-2xl bg-card border border-border shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02]">
+            <div className="group relative overflow-hidden rounded-2xl bg-card border border-border shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] flex flex-col">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent"></div>
-              <div className="relative p-8 md:p-10">
+              <div className="relative p-8 md:p-10 flex flex-col flex-1">
                 
                 {/* Header */}
                 <div className="flex items-center gap-4 mb-6">
@@ -191,7 +191,7 @@ export default function Home() {
                 </div>
 
                 {/* Current Role Highlight */}
-                <div className="bg-muted/30 rounded-xl p-6 mb-6">
+                <div className="bg-muted/30 rounded-xl p-6 mb-6 flex-1">
                   <div className="flex items-center gap-2 mb-3">
                     <Badge className="bg-green-500/10 text-green-600 border-green-500/20">
                       ● Current Role
@@ -214,20 +214,22 @@ export default function Home() {
                 </div>
 
                 {/* CTA */}
-                <Button asChild className="w-full group/btn">
-                  <Link href="/experience">
-                    <TrendingUp className="w-4 h-4 mr-2" />
-                    View Full Experience
-                    <ArrowRight className="w-4 h-4 ml-auto opacity-0 group-hover/btn:opacity-100 transition-opacity" />
-                  </Link>
-                </Button>
+                <div className="mt-auto">
+                  <Button asChild className="w-full group/btn">
+                    <Link href="/experience">
+                      <TrendingUp className="w-4 h-4 mr-2" />
+                      View Full Experience
+                      <ArrowRight className="w-4 h-4 ml-auto opacity-0 group-hover/btn:opacity-100 transition-opacity" />
+                    </Link>
+                  </Button>
+                </div>
               </div>
             </div>
 
             {/* Projects Section */}
-            <div className="group relative overflow-hidden rounded-2xl bg-card border border-border shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02]">
+            <div className="group relative overflow-hidden rounded-2xl bg-card border border-border shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] flex flex-col">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent"></div>
-              <div className="relative p-8 md:p-10">
+              <div className="relative p-8 md:p-10 flex flex-col flex-1">
                 
                 {/* Header */}
                 <div className="flex items-center gap-4 mb-6">
@@ -241,7 +243,7 @@ export default function Home() {
                 </div>
 
                 {/* Featured Projects */}
-                <div className="space-y-4 mb-6">
+                <div className="space-y-4 mb-6 flex-1">
                   {featuredProjects.map((project, index) => {
                     const Icon = project.icon;
                     return (
@@ -267,13 +269,15 @@ export default function Home() {
                 </div>
 
                 {/* CTA */}
-                <Button asChild className="w-full group/btn" variant="secondary">
-                  <Link href="/projects">
-                    <Award className="w-4 h-4 mr-2" />
-                    View All Projects
-                    <ArrowRight className="w-4 h-4 ml-auto opacity-0 group-hover/btn:opacity-100 transition-opacity" />
-                  </Link>
-                </Button>
+                <div className="mt-auto">
+                  <Button asChild className="w-full group/btn">
+                    <Link href="/projects">
+                      <Award className="w-4 h-4 mr-2" />
+                      View All Projects
+                      <ArrowRight className="w-4 h-4 ml-auto opacity-0 group-hover/btn:opacity-100 transition-opacity" />
+                    </Link>
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
