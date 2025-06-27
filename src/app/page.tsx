@@ -94,28 +94,28 @@ const featuredExperience = {
 
 const featuredProjects = [
   {
-    title: 'Unifi PDF Lifting Competition',
-    type: 'Competition Win',
-    prize: '$5,000',
-    rank: '1st/76',
+    title: 'T3 Chat Clone',
+    type: 'Full Stack Project',
+    prize: 'Live Demo',
+    rank: 'Featured',
+    icon: Code,
+    color: 'text-emerald-600 bg-emerald-500/10'
+  },
+  {
+    title: 'AI Hackathon Wins',
+    type: 'Competition Success',
+    venue: '$10,000+',
+    impact: 'Multi-event',
     icon: Trophy,
     color: 'text-orange-600 bg-orange-500/10'
   },
   {
-    title: 'IEEE Smart Cities Publication',
-    type: 'Research Publication',
-    venue: 'IEEE Conference',
+    title: 'IEEE Publication',
+    type: 'Research Work',
+    venue: 'Conference',
     impact: 'International',
     icon: BookOpen,
     color: 'text-blue-600 bg-blue-500/10'
-  },
-  {
-    title: 'DataDrive2030 Challenge',
-    type: 'Competition Win',
-    prize: '$3,000',
-    rank: '1st/336',
-    icon: Trophy,
-    color: 'text-green-600 bg-green-500/10'
   }
 ];
 
@@ -236,7 +236,7 @@ export default function Home() {
                   </div>
                   <div>
                     <h3 className="text-2xl md:text-3xl font-bold text-foreground">Projects</h3>
-                    <p className="text-muted-foreground">Competitions & research</p>
+                    <p className="text-muted-foreground">Full stack, AI hackathons & publications</p>
                   </div>
                 </div>
 

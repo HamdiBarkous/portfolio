@@ -110,9 +110,9 @@ const projectsData = [
 
 const categories = [
   { id: 'all', label: 'All Projects', icon: Target, count: projectsData.length },
+  { id: 'project', label: 'Full Stack Projects', icon: Code, count: projectsData.filter(p => p.type === 'project').length },
   { id: 'competition', label: 'Competitions', icon: Trophy, count: projectsData.filter(p => p.type === 'competition').length },
-  { id: 'publication', label: 'Publications', icon: BookOpen, count: projectsData.filter(p => p.type === 'publication').length },
-  { id: 'project', label: 'Personal Projects', icon: Code, count: projectsData.filter(p => p.type === 'project').length }
+  { id: 'publication', label: 'Publications', icon: BookOpen, count: projectsData.filter(p => p.type === 'publication').length }
 ];
 
 export default function ProjectsPage() {
@@ -161,18 +161,14 @@ export default function ProjectsPage() {
           </p>
 
           {/* Achievement Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto mb-12">
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary">3</div>
-              <div className="text-sm text-muted-foreground">Competition Wins</div>
+              <div className="text-3xl font-bold text-primary">1</div>
+              <div className="text-sm text-muted-foreground">Full Stack Project</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-foreground">${totalPrizeMoney.toLocaleString()}</div>
-              <div className="text-sm text-muted-foreground">Prize Money</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-primary">853</div>
-              <div className="text-sm text-muted-foreground">Total Competitors</div>
+              <div className="text-3xl font-bold text-foreground">$10,000+</div>
+              <div className="text-sm text-muted-foreground">AI Hackathon Wins</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-foreground">1</div>
