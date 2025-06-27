@@ -9,6 +9,29 @@ import Link from 'next/link';
 const projectsData = [
   {
     id: 1,
+    type: 'project',
+    title: 'T3 Chat Clone',
+    subtitle: 'AI Chatbot with MCP Tools Integration • Live Deployment',
+    period: 'Jun 2025',
+    impact: 'Full-stack AI chatbot with advanced features',
+    description: 'Built and deployed a sophisticated AI chatbot during a cloneathon challenge, featuring cutting-edge MCP tools integration, real-time streaming, and multi-modal capabilities.',
+    highlights: [
+      'Integrated MCP (Model Context Protocol) tools for external system connectivity',
+      'Implemented multi-modal input with documents and image processing',
+      'Built real-time streamable messages for responsive UX',
+      'Developed innovative chat branching for conversation exploration',
+      'Full authentication system with user management',
+      'Successfully deployed with AWS backend and Vercel frontend'
+    ],
+    skills: ['TypeScript', 'Python', 'MCP', 'AI/LLM', 'Real-time Streaming', 'Multi-modal AI', 'Full-stack'],
+    status: 'live',
+    featured: true,
+    link: 'https://github.com/HamdiBarkous/t3-chat-clone',
+    liveUrl: 'https://t3-chat-clone-delta.vercel.app/',
+    stats: { frontend: 'Next.js', backend: 'Python', deployment: 'AWS + Vercel' }
+  },
+  {
+    id: 2,
     type: 'competition',
     title: 'Unifi PDF Lifting Competition',
     subtitle: '1st Place Winner • $5,000 Prize',
@@ -23,12 +46,11 @@ const projectsData = [
     ],
     skills: ['LLM', 'RAG', 'PDF Processing', 'NLP', 'Python'],
     status: 'won',
-    featured: true,
     link: 'https://github.com/HamdiBarkous/Unifi-Value-Frameworks-PDF-Lifting-Competition',
     stats: { participants: 76, prize: '$5,000', rank: '1st' }
   },
   {
-    id: 2,
+    id: 3,
     type: 'competition',
     title: 'DataDrive2030 Early Learning Challenge',
     subtitle: '1st Place Winner • $3,000 Prize',
@@ -43,12 +65,11 @@ const projectsData = [
     ],
     skills: ['Machine Learning', 'XGBoost', 'Feature Engineering', 'Predictive Modeling'],
     status: 'won',
-    featured: true,
     link: 'https://github.com/HamdiBarkous/DataDrive2030-Early-Learning-Predictors-Challenge',
     stats: { participants: 336, prize: '$3,000', rank: '1st' }
   },
   {
-    id: 3,
+    id: 4,
     type: 'publication',
     title: 'Hybrid Deep Learning Model for Electric Load Forecasting',
     subtitle: 'IEEE International Conference Publication',
@@ -67,7 +88,7 @@ const projectsData = [
     stats: { venue: 'IEEE', impact: 'International', type: 'Conference' }
   },
   {
-    id: 4,
+    id: 5,
     type: 'competition',
     title: 'Carbon Dioxide Prediction Challenge',
     subtitle: '1st Place Winner • $2,100 Prize',
@@ -105,6 +126,7 @@ export default function ProjectsPage() {
     switch (status) {
       case 'won': return 'bg-green-500/10 text-green-600 border-green-500/20';
       case 'published': return 'bg-blue-500/10 text-blue-600 border-blue-500/20';
+      case 'live': return 'bg-emerald-500/10 text-emerald-600 border-emerald-500/20';
       case 'ongoing': return 'bg-orange-500/10 text-orange-600 border-orange-500/20';
       default: return 'bg-muted-foreground/10 text-muted-foreground border-muted-foreground/20';
     }
@@ -121,7 +143,7 @@ export default function ProjectsPage() {
 
   const totalPrizeMoney = projectsData
     .filter(p => p.type === 'competition' && p.stats?.prize)
-    .reduce((sum, p) => sum + parseInt(p.stats.prize.replace(/[$,]/g, '')), 0);
+    .reduce((sum, p) => sum + parseInt(p.stats!.prize!.replace(/[$,]/g, '')), 0);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background to-muted/20">
@@ -266,6 +288,22 @@ export default function ProjectsPage() {
                           </div>
                         </>
                       )}
+                      {project.type === 'project' && (
+                        <>
+                          <div className="text-center">
+                            <div className="text-lg font-bold text-primary">{project.stats.frontend}</div>
+                            <div className="text-xs text-muted-foreground">Frontend</div>
+                          </div>
+                          <div className="text-center">
+                            <div className="text-lg font-bold text-foreground">{project.stats.backend}</div>
+                            <div className="text-xs text-muted-foreground">Backend</div>
+                          </div>
+                          <div className="text-center">
+                            <div className="text-lg font-bold text-primary">{project.stats.deployment}</div>
+                            <div className="text-xs text-muted-foreground">Deployment</div>
+                          </div>
+                        </>
+                      )}
                     </div>
                   )}
 
@@ -297,17 +335,30 @@ export default function ProjectsPage() {
                   </div>
 
                   {/* Action */}
-                  {project.link && project.link !== '#' && (
-                    <Button asChild className="w-full group/btn">
-                      <Link href={project.link} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        View Project
-                        <div className="ml-auto opacity-0 group-hover/btn:opacity-100 transition-opacity">
-                          →
-                        </div>
-                      </Link>
-                    </Button>
-                  )}
+                  <div className="space-y-3">
+                    {project.link && project.link !== '#' && (
+                      <Button asChild className="w-full group/btn">
+                        <Link href={project.link} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          View Source Code
+                          <div className="ml-auto opacity-0 group-hover/btn:opacity-100 transition-opacity">
+                            →
+                          </div>
+                        </Link>
+                      </Button>
+                    )}
+                    {project.liveUrl && (
+                      <Button asChild variant="outline" className="w-full group/btn">
+                        <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          View Live Demo
+                          <div className="ml-auto opacity-0 group-hover/btn:opacity-100 transition-opacity">
+                            →
+                          </div>
+                        </Link>
+                      </Button>
+                    )}
+                  </div>
                 </div>
               </div>
             );
