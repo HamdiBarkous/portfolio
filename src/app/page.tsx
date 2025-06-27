@@ -78,7 +78,6 @@ const skillsCategories = [
     icon: Code,
     skills: [
       { name: "Cursor", iconName: "cursor" },
-      { name: "Cline", iconName: "cline" },
       { name: "MCP", iconName: "mcp" },
     ],
   },
@@ -120,12 +119,7 @@ const featuredProjects = [
   }
 ];
 
-const stats = [
-  { label: 'Years Experience', value: '2+', icon: Briefcase },
-  { label: 'Competition Wins', value: '3', icon: Trophy },
-  { label: 'Total Prize Money', value: '$10K+', icon: Award },
-  { label: 'IEEE Publications', value: '1', icon: BookOpen }
-];
+
 
 export default function Home() {
   return (
@@ -154,7 +148,7 @@ export default function Home() {
               ML Engineer
             </h2>
             <p className="max-w-3xl text-base sm:text-lg text-muted-foreground mb-8">
-              Passionate about artificial intelligence, mathematics, and optimization. Dedicated to the development and refinement of deep learning models with a strong work ethic and a continuous drive for learning.
+              I'm deeply passionate about artificial intelligence and its accelerating impact on our world. As technology evolves faster than ever, I believe the new mantra isn't "learn to code" it's "learn to create." I use AI-enhanced tools like Cursor to bring ideas to life quickly and creatively, blending human intuition with machine efficiency to deliver production-ready solutions.
             </p>
             <div className="flex justify-center md:justify-start items-center space-x-4">
               <Button asChild variant="outline" size="icon">
@@ -176,32 +170,8 @@ export default function Home() {
          </div> {/* Add missing closing div for text content */}
         </section>
 
-        {/* Work Showcase Section */}
-        <section id="work-showcase" className="mb-12 md:mb-16">
-          <div className="text-center mb-8">
-            
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text">
-              My Work & Achievements
-            </h2>
-            
-            {/* Quick Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-8">
-              {stats.map((stat, index) => {
-                const Icon = stat.icon;
-                return (
-                  <div key={index} className="text-center group hover:scale-105 transition-transform duration-300">
-                    <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 text-primary rounded-xl mb-3 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <div className="text-2xl md:text-3xl font-bold text-foreground">{stat.value}</div>
-                    <div className="text-sm text-muted-foreground">{stat.label}</div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Main Navigation Cards */}
+        {/* Main Navigation Cards */}
+        <section id="navigation" className="mb-12 md:mb-16">
           <div className="grid md:grid-cols-2 gap-8">
             
             {/* Experience Section */}
@@ -367,7 +337,7 @@ export default function Home() {
             </div>
             <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Work Together?</h2>
             <p className="text-muted-foreground mb-6">
-              I'm passionate about solving complex problems with machine learning and building impactful solutions. Let's create something amazing together!
+              I'm passionate about solving complex problems with AI and building impactful solutions. Let's create something amazing together!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" asChild>

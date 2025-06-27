@@ -129,12 +129,6 @@ export default function ProjectsPage() {
         
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <div className="inline-block mb-6">
-            <Badge variant="outline" className="px-4 py-2 text-sm font-medium">
-              <Trophy className="w-4 h-4 mr-2" />
-              Project Showcase
-            </Badge>
-          </div>
           
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text">
             Projects & Achievements

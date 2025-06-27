@@ -14,16 +14,15 @@ const experienceData = [
     location: 'Remote',
     type: 'Full-time',
     status: 'current',
-    description: 'Building cutting-edge deep learning models for financial prediction and developing sophisticated trading strategies.',
     achievements: [
-      'Implemented DL/ML models for financial symbol prediction with 85%+ accuracy',
+      'Implemented DL/ML models for financial symbol prediction',
       'Built agentic framework for real-time ticker-based sentiment analysis',
       'Designed rule-based and LLM-powered trading strategies',
-      'Created comprehensive backtesting framework processing 10M+ data points',
+      'Created comprehensive backtesting framework',
       'Optimized data pipeline efficiency, reducing processing time by 60%'
     ],
     skills: ['Deep Learning', 'Machine Learning', 'Finance', 'LLM', 'Trading Strategies', 'Python', 'Data Engineering'],
-    impact: 'Built DL/ML models for financial prediction with trading strategies'
+    impact: 'Developing advanced AI solutions for financial markets and trading optimization'
   },
   {
     id: 2,
@@ -33,7 +32,6 @@ const experienceData = [
     location: 'Montreal, Canada',
     type: 'Research',
     status: 'completed',
-    description: 'Conducted advanced research on midterm electric load forecasting, developing novel hybrid models combining traditional and deep learning approaches.',
     achievements: [
       'Implemented hybrid ETS+RD-LSTM forecasting model achieving 15% better accuracy',
       'Conducted comprehensive literature review of 50+ SOTA forecasting methods',
@@ -42,7 +40,7 @@ const experienceData = [
       'Published findings at IEEE International Conference on Smart Cities'
     ],
     skills: ['LSTM', 'Time Series Forecasting', 'Research', 'ETS Models', 'PyTorch', 'Scientific Writing'],
-    impact: 'Advanced electric load forecasting with hybrid ETS+RD-LSTM model'
+    impact: 'Conducted advanced research on midterm electric load forecasting, developing novel hybrid models combining traditional and deep learning approaches.'
   }
 ];
 
@@ -61,36 +59,14 @@ export default function ExperiencePage() {
         
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <div className="inline-block mb-6">
-            <Badge variant="outline" className="px-4 py-2 text-sm font-medium">
-              <Briefcase className="w-4 h-4 mr-2" />
-              Professional Journey
-            </Badge>
-          </div>
           
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text">
             Work Experience
           </h1>
           
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-12">
             My professional journey in machine learning and AI, building impactful solutions and advancing the field through research and development.
           </p>
-
-          {/* Quick Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-xl mx-auto mb-12">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-primary">2+</div>
-              <div className="text-sm text-muted-foreground">Years Experience</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-foreground">10M+</div>
-              <div className="text-sm text-muted-foreground">Data Points Processed</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-primary">85%+</div>
-              <div className="text-sm text-muted-foreground">Model Accuracy</div>
-            </div>
-          </div>
         </div>
 
         {/* Timeline */}
@@ -157,11 +133,6 @@ export default function ExperiencePage() {
                     </p>
                   </div>
 
-                  {/* Description */}
-                  <p className="text-muted-foreground leading-relaxed mb-6">
-                    {experience.description}
-                  </p>
-
                   {/* Achievements */}
                   <div className="mb-6">
                     <div className="flex items-center gap-2 mb-3">
@@ -204,7 +175,7 @@ export default function ExperiencePage() {
             <Users className="w-12 h-12 text-primary mx-auto mb-4" />
             <h2 className="text-2xl md:text-3xl font-bold mb-4">Let's Work Together</h2>
             <p className="text-muted-foreground mb-6">
-              I'm passionate about solving complex problems with machine learning and building impactful solutions.
+              I'm passionate about solving complex problems with AI and building impactful solutions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" asChild>
