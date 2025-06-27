@@ -2,7 +2,7 @@
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Briefcase, Trophy, BookOpen, ArrowRight, Award, TrendingUp, Code, Calendar, ExternalLink, MapPin } from 'lucide-react';
+import { Briefcase, Trophy, BookOpen, ArrowRight, Award, TrendingUp, Code, Calendar, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 
 const featuredExperience = {
@@ -232,7 +232,7 @@ export default function WorkPage() {
             </div>
             <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Work Together?</h2>
             <p className="text-muted-foreground mb-6">
-              I'm passionate about solving complex problems with AI and building impactful solutions. Let's create something amazing together!
+              I&apos;m passionate about solving complex problems with AI and building impactful solutions. Let&apos;s create something amazing together!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" asChild>

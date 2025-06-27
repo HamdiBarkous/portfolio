@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Github, Linkedin, Mail } from 'lucide-react';
+import { useState } from 'react';
 
 // Note: Metadata export might need adjustment if 'use client' is strictly required at the top level.
 // For now, we keep it, but might need a separate layout or server component for metadata if form interaction becomes complex.
@@ -18,10 +19,41 @@ import { Github, Linkedin, Mail } from 'lucide-react';
 export default function ContactPage() {
 
   // Basic handler to prevent default form submission for now
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState<string|null>(null);
+  const [error, setError] = useState<string|null>(null);
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // TODO: Implement actual form submission logic (e.g., API call)
-    alert("Form submission not implemented yet.");
+    setLoading(true);
+    setSuccess(null);
+    setError(null);
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      subject: formData.get('subject'),
+      message: formData.get('message'),
+    };
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (res.ok) {
+        setSuccess('Message sent successfully!');
+        form.reset();
+      } else {
+        const result = await res.json();
+        setError(result.error || 'Failed to send message.');
+      }
+    } catch {
+      setError('Failed to send message.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -62,22 +94,24 @@ export default function ContactPage() {
              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                <div className="space-y-2">
                  <Label htmlFor="name">Name</Label>
-                 <Input id="name" placeholder="Your Name" required />
+                 <Input id="name" name="name" placeholder="Your Name" required />
                </div>
                <div className="space-y-2">
                  <Label htmlFor="email">Email</Label>
-                 <Input id="email" type="email" placeholder="your.email@example.com" required />
+                 <Input id="email" name="email" type="email" placeholder="your.email@example.com" required />
                </div>
              </div>
              <div className="space-y-2">
                <Label htmlFor="subject">Subject</Label>
-               <Input id="subject" placeholder="Subject of your message" required />
+               <Input id="subject" name="subject" placeholder="Subject of your message" required />
              </div>
              <div className="space-y-2">
                <Label htmlFor="message">Message</Label>
-               <Textarea id="message" placeholder="Your message..." required rows={5} />
+               <Textarea id="message" name="message" placeholder="Your message..." required rows={5} />
              </div>
-             <Button type="submit">Send Message</Button>
+             <Button type="submit" disabled={loading}>{loading ? 'Sending...' : 'Send Message'}</Button>
+             {success && <div className="text-green-600 pt-2">{success}</div>}
+             {error && <div className="text-red-600 pt-2">{error}</div>}
            </form>
         </div>
           </div>

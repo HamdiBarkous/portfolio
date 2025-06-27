@@ -2,7 +2,7 @@
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Briefcase, MapPin, Calendar, ExternalLink, TrendingUp, Users, Code, Award } from 'lucide-react';
+import { MapPin, Calendar, ExternalLink, TrendingUp, Users, Code, Award } from 'lucide-react';
 import Link from 'next/link';
 
 const experienceData = [
@@ -93,7 +93,7 @@ export default function ExperiencePage() {
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-2">
                         <Badge className={`text-xs font-medium border ${getStatusColor(experience.status)}`}>
-                          {experience.status === 'current' ? '● Current' : 'Completed'}
+                          {experience.status === 'current' ? '\u25cf Current' : 'Completed'}
                         </Badge>
                         <Badge variant="outline" className="text-xs">
                           {experience.type}
@@ -173,9 +173,9 @@ export default function ExperiencePage() {
         <div className="text-center mt-16">
           <div className="bg-card border border-border rounded-2xl p-8 md:p-12 max-w-2xl mx-auto">
             <Users className="w-12 h-12 text-primary mx-auto mb-4" />
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">Let's Work Together</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Let&apos;s Work Together</h2>
             <p className="text-muted-foreground mb-6">
-              I'm passionate about solving complex problems with AI and building impactful solutions.
+              I&apos;m passionate about solving complex problems with AI and building impactful solutions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" asChild>

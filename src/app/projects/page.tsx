@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Trophy, BookOpen, Code, ExternalLink, Calendar, Target, Award, DollarSign, Users } from 'lucide-react';
+import { Trophy, BookOpen, Code, ExternalLink, Calendar, Target, Award, Users } from 'lucide-react';
 import Link from 'next/link';
 
 const projectsData = [
@@ -141,10 +141,6 @@ export default function ProjectsPage() {
     }
   };
 
-  const totalPrizeMoney = projectsData
-    .filter(p => p.type === 'competition' && p.stats?.prize)
-    .reduce((sum, p) => sum + parseInt(p.stats!.prize!.replace(/[$,]/g, '')), 0);
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-background to-muted/20">
       <div className="container mx-auto px-4 py-12 md:py-20">
@@ -205,7 +201,7 @@ export default function ProjectsPage() {
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {filteredProjects.map((project, index) => {
+          {filteredProjects.map((project) => {
             const Icon = getTypeIcon(project.type);
             
             return (
@@ -305,7 +301,7 @@ export default function ProjectsPage() {
 
                   {/* Description */}
                   <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                    {project.description}
+                    {project.description.replace(/'/g, "&apos;")}
                   </p>
 
                   {/* Highlights */}
@@ -361,7 +357,7 @@ export default function ProjectsPage() {
             <Users className="w-12 h-12 text-primary mx-auto mb-4" />
             <h2 className="text-2xl md:text-3xl font-bold mb-4">Collaborate on the Next Big Thing</h2>
             <p className="text-muted-foreground mb-6">
-              I'm always excited to work on challenging projects and competitions. Let's build something amazing together!
+              I&apos;m always excited to work on challenging projects and competitions. Let&apos;s build something amazing together!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" asChild>

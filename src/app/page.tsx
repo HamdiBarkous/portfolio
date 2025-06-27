@@ -10,10 +10,8 @@ import {
   CodeXml, // Icon for Programming Languages
   BrainCircuit, // Icon for ML/AI
   ServerCog, // Icon for Backend & APIs
-  Database, // Icon for Databases & Storage
   Cloud, // Icon for Cloud & MLOps
   WandSparkles, // Icon for AI Dev
-  Briefcase,
   Trophy,
   BookOpen,
   ArrowRight,
@@ -22,8 +20,8 @@ import {
   Code,
   Calendar,
   ExternalLink,
-  MapPin,
-  Users
+  Users,
+  Briefcase
 } from 'lucide-react';
 
 // Enhanced Skills Data with better organization and balance
@@ -148,7 +146,7 @@ export default function Home() {
               ML Engineer
             </h2>
             <p className="max-w-3xl text-base sm:text-lg text-muted-foreground mb-8">
-              I'm deeply passionate about artificial intelligence and its accelerating impact on our world. As technology evolves faster than ever, I believe the new mantra isn't "learn to code" it's "learn to create." I use AI-enhanced tools like Cursor to bring ideas to life quickly and creatively, blending human intuition with machine efficiency to deliver production-ready solutions.
+              I&apos;m deeply passionate about artificial intelligence and its accelerating impact on our world. As technology evolves faster than ever, I believe the new mantra isn&apos;t &quot;learn to code&quot; it&apos;s &quot;learn to create.&quot; I use AI-enhanced tools like Cursor to bring ideas to life quickly and creatively, blending human intuition with machine efficiency to deliver production-ready solutions.
             </p>
             <div className="flex justify-center md:justify-start items-center space-x-4">
               <Button asChild variant="outline" size="icon">
@@ -341,7 +339,7 @@ export default function Home() {
             </div>
             <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Work Together?</h2>
             <p className="text-muted-foreground mb-6">
-              I'm passionate about solving complex problems with AI and building impactful solutions. Let's create something amazing together!
+              I&apos;m passionate about solving complex problems with AI and building impactful solutions. Let&apos;s create something amazing together!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" asChild>
