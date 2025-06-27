@@ -213,7 +213,7 @@ export default function ProjectsPage() {
                 key={project.id}
                 className={`group relative overflow-hidden rounded-2xl bg-card border border-border/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] ${
                   project.featured ? 'ring-2 ring-primary/20 shadow-primary/10' : ''
-                }`}
+                } card`}
               >
                 {project.featured && (
                   <div className="absolute top-4 right-4 z-10">

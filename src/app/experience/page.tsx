@@ -86,7 +86,7 @@ export default function ExperiencePage() {
               
               {/* Content Card */}
               <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-12 ml-20 md:ml-0' : 'md:pl-12 ml-20 md:ml-0'}`}>
-                <div className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 group hover:scale-[1.02]">
+                <div className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 group hover:scale-[1.02] card">
                   
                   {/* Header */}
                   <div className="flex items-start justify-between mb-6">

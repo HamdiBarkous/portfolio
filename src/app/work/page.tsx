@@ -91,7 +91,7 @@ export default function WorkPage() {
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           
           {/* Experience Section */}
-          <div className="group relative overflow-hidden rounded-2xl bg-card border border-border shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02]">
+          <div className="group relative overflow-hidden rounded-2xl bg-card border border-border shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] card">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent"></div>
             <div className="relative p-8 md:p-10">
               
@@ -141,7 +141,7 @@ export default function WorkPage() {
           </div>
 
           {/* Projects Section */}
-          <div className="group relative overflow-hidden rounded-2xl bg-card border border-border shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02]">
+          <div className="group relative overflow-hidden rounded-2xl bg-card border border-border shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] card">
             <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-transparent"></div>
             <div className="relative p-8 md:p-10">
               

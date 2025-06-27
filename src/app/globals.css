@@ -359,4 +359,13 @@
     outline-offset: 2px;
     border-radius: 4px;
   }
+
+  .card {
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+  .card:hover {
+    will-change: transform;
+    backface-visibility: hidden;
+  }
 }
