@@ -1,417 +1,587 @@
 "use client";
 
-import { useState } from 'react';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { Trophy, BookOpen, Code, ExternalLink, Calendar, Target, Award, Users } from 'lucide-react';
-import Link from 'next/link';
-import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/ScrollReveal';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from "react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  Trophy,
+  BookOpen,
+  Code,
+  ExternalLink,
+  Github,
+  Calendar,
+  Target,
+  Award,
+  Users,
+  ArrowUpRight,
+  Sparkles,
+  Globe,
+} from "lucide-react";
+import Link from "next/link";
+import { ScrollReveal } from "@/components/ScrollReveal";
+import { motion, AnimatePresence } from "framer-motion";
 
 const projectsData = [
   {
     id: 0,
-    type: 'project',
-    title: 'IntoTeX',
-    subtitle: 'AI-Powered PDF to LaTeX Converter • SaaS Platform',
-    period: '2025',
-    impact: 'Full-stack SaaS with AI agent pipeline',
-    description: 'Built a full-stack SaaS platform that converts PDF documents to LaTeX source code using a LangGraph-based AI agent with vision capabilities and a sophisticated PDF extraction engine.',
+    type: "project",
+    title: "IntoTeX",
+    subtitle: "AI-Powered PDF to LaTeX Converter",
+    period: "2025",
+    impact: "Full-stack SaaS with AI agent pipeline",
+    description:
+      "Built a full-stack SaaS platform that converts PDF documents to LaTeX source code using a LangGraph-based AI agent with vision capabilities and a sophisticated PDF extraction engine.",
     highlights: [
-      'Developed a sophisticated PDF extraction engine for complex document structures',
-      'Built a self-correcting agentic pipeline with visual feedback for high-fidelity output',
-      'Implemented credit-based subscription system with Paddle payment integration'
+      "Sophisticated PDF extraction engine for complex document structures",
+      "Self-correcting agentic pipeline with visual feedback",
+      "Credit-based subscription system with Paddle payments",
     ],
-    skills: ['Python', 'LangGraph', 'Vision AI', 'FastAPI', 'Next.js', 'Supabase', 'WebSocket', 'Paddle'],
-    status: 'live',
+    skills: [
+      "Python",
+      "LangGraph",
+      "Vision AI",
+      "FastAPI",
+      "Next.js",
+      "Supabase",
+      "WebSocket",
+      "Paddle",
+    ],
+    status: "live",
     featured: true,
     link: undefined as string | undefined,
-    liveUrl: 'https://intotex.com',
-    stats: { frontend: 'Next.js', backend: 'FastAPI', deployment: 'Production' }
+    liveUrl: "https://intotex.com",
+    githubUrl: undefined as string | undefined,
   },
   {
     id: 1,
-    type: 'project',
-    title: 'T3 Chat Clone',
-    subtitle: 'AI Chatbot with MCP Tools Integration • Live Deployment',
-    period: 'Jun 2025',
-    impact: 'Full-stack AI chatbot with advanced features',
-    description: 'Built and deployed a sophisticated AI chatbot during a cloneathon challenge, featuring cutting-edge MCP tools integration, real-time streaming, and multi-modal capabilities.',
+    type: "project",
+    title: "T3 Chat Clone",
+    subtitle: "AI Chatbot with MCP Tools Integration",
+    period: "Jun 2025",
+    impact: "Full-stack AI chatbot with advanced features",
+    description:
+      "Built and deployed a sophisticated AI chatbot during a cloneathon challenge, featuring MCP tools integration, real-time streaming, and multi-modal capabilities.",
     highlights: [
-      'Integrated MCP (Model Context Protocol) tools for external system connectivity',
-      'Implemented multi-modal input with documents and image processing',
-      'Built real-time streamable messages for responsive UX',
-      'Developed innovative chat branching for conversation exploration',
-      'Full authentication system with user management',
-      'Successfully deployed with AWS backend and Vercel frontend'
+      "MCP (Model Context Protocol) tools for external connectivity",
+      "Multi-modal input with documents and image processing",
+      "Real-time streaming & chat branching",
     ],
-    skills: ['TypeScript', 'Python', 'MCP', 'AI/LLM', 'Real-time Streaming', 'Multi-modal AI', 'Full-stack'],
-    status: 'live',
+    skills: [
+      "TypeScript",
+      "Python",
+      "MCP",
+      "AI/LLM",
+      "Real-time Streaming",
+      "Multi-modal AI",
+    ],
+    status: "live",
     featured: true,
-    link: 'https://github.com/HamdiBarkous/t3-chat-clone',
-    liveUrl: 'https://t3-chat-clone-delta.vercel.app/',
-    stats: { frontend: 'Next.js', backend: 'Python', deployment: 'AWS + Vercel' }
+    link: "https://github.com/HamdiBarkous/t3-chat-clone",
+    liveUrl: "https://t3-chat-clone-delta.vercel.app/",
+    githubUrl: "https://github.com/HamdiBarkous/t3-chat-clone",
   },
   {
     id: 2,
-    type: 'competition',
-    title: 'Unifi PDF Lifting Competition',
-    subtitle: '1st Place Winner • $5,000 Prize',
-    period: 'Feb 2024',
-    impact: 'Ranked 1/76 participants',
-    description: 'Developed an advanced solution for extracting structured data from PDF documents using state-of-the-art LLM and RAG techniques.',
+    type: "competition",
+    title: "Unifi PDF Lifting",
+    subtitle: "1st Place • $5,000 Prize",
+    period: "Feb 2024",
+    impact: "Ranked 1/76 participants",
+    description:
+      "Advanced solution for extracting structured data from PDF documents using LLM and RAG techniques.",
     highlights: [
-      'Won 1st place out of 76 participants',
-      'Earned $5,000 in prize money',
-      'Built production-ready PDF extraction system',
-      'Implemented LLM-powered document processing pipeline'
+      "Won 1st place out of 76 participants",
+      "Production-ready PDF extraction system",
     ],
-    skills: ['LLM', 'RAG', 'PDF Processing', 'NLP', 'Python'],
-    status: 'won',
-    link: 'https://github.com/HamdiBarkous/Unifi-Value-Frameworks-PDF-Lifting-Competition',
-    stats: { participants: 76, prize: '$5,000', rank: '1st' }
+    skills: ["LLM", "RAG", "PDF Processing", "NLP", "Python"],
+    status: "won",
+    link: "https://github.com/HamdiBarkous/Unifi-Value-Frameworks-PDF-Lifting-Competition",
+    githubUrl:
+      "https://github.com/HamdiBarkous/Unifi-Value-Frameworks-PDF-Lifting-Competition",
+    stats: { participants: 76, prize: "$5,000", rank: "1st" },
   },
   {
     id: 3,
-    type: 'competition',
-    title: 'DataDrive2030 Early Learning Challenge',
-    subtitle: '1st Place Winner • $3,000 Prize',
-    period: 'Jan 2023',
-    impact: 'Ranked 1/336 participants',
-    description: 'Predicted early learning outcomes using advanced machine learning techniques and sophisticated feature engineering approaches.',
+    type: "competition",
+    title: "DataDrive2030",
+    subtitle: "1st Place • $3,000 Prize",
+    period: "Jan 2023",
+    impact: "Ranked 1/336 participants",
+    description:
+      "Predicted early learning outcomes using advanced ML techniques and feature engineering.",
     highlights: [
-      'Won 1st place out of 336 participants',
-      'Earned $3,000 in prize money',
-      'Built predictive models for education outcomes',
-      'Advanced feature engineering and model optimization'
+      "Won 1st place out of 336 participants",
+      "Predictive models for education outcomes",
     ],
-    skills: ['Machine Learning', 'XGBoost', 'Feature Engineering', 'Predictive Modeling'],
-    status: 'won',
-    link: 'https://github.com/HamdiBarkous/DataDrive2030-Early-Learning-Predictors-Challenge',
-    stats: { participants: 336, prize: '$3,000', rank: '1st' }
+    skills: [
+      "Machine Learning",
+      "XGBoost",
+      "Feature Engineering",
+      "Predictive Modeling",
+    ],
+    status: "won",
+    link: "https://github.com/HamdiBarkous/DataDrive2030-Early-Learning-Predictors-Challenge",
+    githubUrl:
+      "https://github.com/HamdiBarkous/DataDrive2030-Early-Learning-Predictors-Challenge",
+    stats: { participants: 336, prize: "$3,000", rank: "1st" },
   },
   {
     id: 4,
-    type: 'publication',
-    title: 'A Comprehensive Analysis of a Hybrid Deep Learning Model for Midterm Electric Load Forecasting',
-    subtitle: 'IEEE International Conference Publication',
-    period: 'Dec 2023',
-    impact: 'Published at IEEE Smart Cities Conference',
-    description: 'A comprehensive analysis of hybrid deep learning approaches for midterm electric load forecasting, published at a premier IEEE conference.',
+    type: "publication",
+    title: "Hybrid DL for Load Forecasting",
+    subtitle: "IEEE International Conference",
+    period: "Dec 2023",
+    impact: "Published at IEEE Smart Cities Conference",
+    description:
+      "A comprehensive analysis of hybrid deep learning approaches for midterm electric load forecasting.",
     highlights: [
-      'Published at 21st IEEE International Conference',
-      'Presented at Smart Cities conference in Australia',
-      'Novel hybrid model architecture contribution',
-      'Comprehensive performance analysis and benchmarking'
+      "21st IEEE International Conference",
+      "Novel hybrid model architecture",
     ],
-    skills: ['Deep Learning', 'Load Forecasting', 'Research', 'PyTorch', 'Time Series'],
-    status: 'published',
-    link: 'https://ieeexplore.ieee.org/document/10466962',
-    stats: { venue: 'IEEE', impact: 'International', type: 'Conference' }
+    skills: [
+      "Deep Learning",
+      "Load Forecasting",
+      "Research",
+      "PyTorch",
+      "Time Series",
+    ],
+    status: "published",
+    link: "https://ieeexplore.ieee.org/document/10466962",
   },
   {
     id: 5,
-    type: 'competition',
-    title: 'Carbon Dioxide Prediction Challenge',
-    subtitle: '1st Place Winner • $2,100 Prize',
-    period: 'Mar 2022',
-    impact: 'Ranked 1/441 participants',
-    description: 'Forecasted carbon dioxide levels using advanced time series analysis and machine learning techniques for environmental impact modeling.',
+    type: "competition",
+    title: "CO₂ Prediction Challenge",
+    subtitle: "1st Place • $2,100 Prize",
+    period: "Mar 2022",
+    impact: "Ranked 1/441 participants",
+    description:
+      "Forecasted carbon dioxide levels using advanced time series analysis for environmental impact modeling.",
     highlights: [
-      'Won 1st place out of 441 participants',
-      'Earned $2,100 in prize money',
-      'Environmental impact modeling expertise',
-      'Advanced time series forecasting techniques'
+      "Won 1st place out of 441 participants",
+      "Environmental impact modeling",
     ],
-    skills: ['Time Series Forecasting', 'Environmental Modeling', 'Python', 'Statistical Analysis'],
-    status: 'won',
-    link: 'https://github.com/HamdiBarkous/UmojaHack-Africa-2023-Carbon-Dioxide-Prediction-Challenge',
-    stats: { participants: 441, prize: '$2,100', rank: '1st' }
-  }
+    skills: [
+      "Time Series",
+      "Environmental Modeling",
+      "Python",
+      "Statistical Analysis",
+    ],
+    status: "won",
+    link: "https://github.com/HamdiBarkous/UmojaHack-Africa-2023-Carbon-Dioxide-Prediction-Challenge",
+    githubUrl:
+      "https://github.com/HamdiBarkous/UmojaHack-Africa-2023-Carbon-Dioxide-Prediction-Challenge",
+    stats: { participants: 441, prize: "$2,100", rank: "1st" },
+  },
 ];
 
 const categories = [
-  { id: 'all', label: 'All Projects', icon: Target, count: projectsData.length },
-  { id: 'project', label: 'Full Stack Projects', icon: Code, count: projectsData.filter(p => p.type === 'project').length },
-  { id: 'competition', label: 'Competitions', icon: Trophy, count: projectsData.filter(p => p.type === 'competition').length },
-  { id: 'publication', label: 'Publications', icon: BookOpen, count: projectsData.filter(p => p.type === 'publication').length }
+  {
+    id: "all",
+    label: "All",
+    icon: Target,
+    count: projectsData.length,
+  },
+  {
+    id: "project",
+    label: "Projects",
+    icon: Code,
+    count: projectsData.filter((p) => p.type === "project").length,
+  },
+  {
+    id: "competition",
+    label: "Competitions",
+    icon: Trophy,
+    count: projectsData.filter((p) => p.type === "competition").length,
+  },
+  {
+    id: "publication",
+    label: "Publications",
+    icon: BookOpen,
+    count: projectsData.filter((p) => p.type === "publication").length,
+  },
 ];
 
 export default function ProjectsPage() {
-  const [activeCategory, setActiveCategory] = useState('all');
-  
-  const filteredProjects = activeCategory === 'all' 
-    ? projectsData 
-    : projectsData.filter(item => item.type === activeCategory);
+  const [activeCategory, setActiveCategory] = useState("all");
 
-  const getStatusColor = (status: string) => {
+  const filteredProjects =
+    activeCategory === "all"
+      ? projectsData
+      : projectsData.filter((item) => item.type === activeCategory);
+
+  const featuredProjects = filteredProjects.filter(
+    (p) => p.featured
+  );
+  const otherProjects = filteredProjects.filter(
+    (p) => !p.featured
+  );
+
+  const getStatusBadge = (status: string) => {
     switch (status) {
-      case 'won': return 'badge-success';
-      case 'published': return 'badge-info';
-      case 'live': return 'badge-highlight';
-      case 'ongoing': return 'badge-warning';
-      default: return 'bg-muted/30 text-muted-foreground border-border';
+      case "won":
+        return { label: "🏆 Winner", className: "badge-success" };
+      case "published":
+        return { label: "📄 Published", className: "badge-info" };
+      case "live":
+        return { label: "🟢 Live", className: "badge-highlight" };
+      case "ongoing":
+        return { label: "🔨 In Progress", className: "badge-warning" };
+      default:
+        return {
+          label: status,
+          className: "bg-muted/30 text-muted-foreground border-border",
+        };
     }
   };
 
-  const getTypeIcon = (type: string) => {
+  const getTypeAccent = (type: string) => {
     switch (type) {
-      case 'competition': return Trophy;
-      case 'publication': return BookOpen;
-      case 'project': return Code;
-      default: return Target;
+      case "competition":
+        return "from-yellow-500/20 to-orange-500/20 dark:from-yellow-500/10 dark:to-orange-500/10";
+      case "publication":
+        return "from-blue-500/20 to-purple-500/20 dark:from-blue-500/10 dark:to-purple-500/10";
+      case "project":
+        return "from-emerald-500/20 to-cyan-500/20 dark:from-emerald-500/10 dark:to-cyan-500/10";
+      default:
+        return "from-primary/20 to-primary/5";
+    }
+  };
+
+  const getTypeBorder = (type: string) => {
+    switch (type) {
+      case "competition":
+        return "hover:border-yellow-500/50";
+      case "publication":
+        return "hover:border-blue-500/50";
+      case "project":
+        return "hover:border-emerald-500/50";
+      default:
+        return "hover:border-primary/50";
     }
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background to-muted/20">
-      {/* Subtle background pattern */}
       <div className="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_1px_1px,var(--border)_1px,transparent_0)] bg-[size:40px_40px] opacity-30" />
 
-      <div className="container mx-auto px-4 py-12 md:py-20">
-        
-        {/* Hero Section */}
+      <div className="container mx-auto px-4 py-12 md:py-20 max-w-6xl">
+        {/* Page Header */}
         <ScrollReveal>
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
               Projects & Achievements
             </h1>
-            
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
-              A showcase of my competition victories, research publications, and innovative projects in machine learning and AI.
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Full-stack AI products, competition wins, and research.
             </p>
+          </div>
+        </ScrollReveal>
 
-            {/* Achievement Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto mb-12">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary">2</div>
-                <div className="text-sm text-muted-foreground">Full Stack Projects</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-foreground">$10,000+</div>
-                <div className="text-sm text-muted-foreground">AI Hackathon Wins</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-foreground">1</div>
-                <div className="text-sm text-muted-foreground">IEEE Publication</div>
-              </div>
+        {/* Stats Row */}
+        <ScrollReveal delay={0.05}>
+          <div className="flex justify-center gap-8 md:gap-16 mb-12">
+            <div className="text-center">
+              <div className="text-2xl md:text-3xl font-bold text-primary">3×</div>
+              <div className="text-xs md:text-sm text-muted-foreground">1st Place Wins</div>
+            </div>
+            <div className="h-12 w-px bg-border" />
+            <div className="text-center">
+              <div className="text-2xl md:text-3xl font-bold text-foreground">$10K+</div>
+              <div className="text-xs md:text-sm text-muted-foreground">Prize Money</div>
+            </div>
+            <div className="h-12 w-px bg-border" />
+            <div className="text-center">
+              <div className="text-2xl md:text-3xl font-bold text-foreground">1</div>
+              <div className="text-xs md:text-sm text-muted-foreground">IEEE Paper</div>
             </div>
           </div>
         </ScrollReveal>
 
         {/* Category Filter */}
         <ScrollReveal delay={0.1}>
-          <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-12">
+          <div className="flex justify-center gap-2 mb-12">
             {categories.map((category) => {
-              const Icon = category.icon;
               const isActive = activeCategory === category.id;
-              
               return (
                 <button
                   key={category.id}
                   onClick={() => setActiveCategory(category.id)}
-                  className={`flex items-center gap-2 px-4 md:px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                     isActive
-                      ? 'bg-primary text-primary-foreground shadow-lg scale-105'
-                      : 'bg-card hover:bg-muted border border-border hover:border-primary/50'
+                      ? "bg-primary text-primary-foreground shadow-md"
+                      : "bg-card hover:bg-muted text-muted-foreground hover:text-foreground border border-border"
                   }`}
                 >
-                  <Icon className="w-4 h-4" />
-                  <span className="text-sm md:text-base">{category.label}</span>
-                  <Badge variant="secondary" className="ml-1 text-xs">
+                  {category.label}
+                  <span className={`ml-1.5 text-xs ${isActive ? "opacity-80" : "opacity-50"}`}>
                     {category.count}
-                  </Badge>
+                  </span>
                 </button>
               );
             })}
           </div>
         </ScrollReveal>
 
-        {/* Projects Grid */}
+        {/* Projects */}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeCategory}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.25 }}
+            className="space-y-6"
           >
-            {filteredProjects.map((project, index) => {
-              const Icon = getTypeIcon(project.type);
-              
-              return (
-                <motion.div
-                  key={project.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className={`group relative overflow-hidden rounded-2xl bg-card border border-border/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] ${
-                    project.featured ? 'ring-2 ring-primary/20 shadow-primary/10' : ''
-                  } card`}
-                >
-                  {project.featured && (
-                    <div className="absolute top-4 right-4 z-10">
-                      <Badge className="badge-prize">
-                        <Award className="w-3 h-3 mr-1" />
-                        Featured
-                      </Badge>
-                    </div>
-                  )}
+            {/* Featured Projects — full width cards */}
+            {featuredProjects.length > 0 && (
+              <div className="space-y-6">
+                {featuredProjects.map((project, index) => {
+                  const statusBadge = getStatusBadge(project.status);
+                  return (
+                    <motion.div
+                      key={project.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: index * 0.1 }}
+                      className={`group relative overflow-hidden rounded-2xl bg-card border border-border/60 transition-all duration-300 hover:shadow-xl ${getTypeBorder(project.type)} card`}
+                    >
+                      {/* Top accent gradient */}
+                      <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${getTypeAccent(project.type)}`} />
 
-                  <div className="p-6 md:p-8">
-                    {/* Header */}
-                    <div className="flex items-start gap-4 mb-6">
-                      <div className="p-3 rounded-xl bg-primary/10 text-primary">
-                        <Icon className="w-6 h-6" />
+                      <div className="p-6 md:p-8">
+                        <div className="flex flex-col md:flex-row md:items-start gap-6">
+                          {/* Left content */}
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center gap-3 mb-3 flex-wrap">
+                              <Badge className={`${statusBadge.className} text-xs`}>
+                                {statusBadge.label}
+                              </Badge>
+                              <Badge variant="outline" className="text-xs">
+                                <Sparkles className="w-3 h-3 mr-1" />
+                                Featured
+                              </Badge>
+                              <span className="text-xs text-muted-foreground flex items-center gap-1">
+                                <Calendar className="w-3 h-3" />
+                                {project.period}
+                              </span>
+                            </div>
+
+                            <h2 className="text-2xl md:text-3xl font-bold mb-1 group-hover:text-primary transition-colors">
+                              {project.title}
+                            </h2>
+                            <p className="text-sm text-primary font-medium mb-4">
+                              {project.subtitle}
+                            </p>
+
+                            <p className="text-muted-foreground text-sm leading-relaxed mb-5 max-w-2xl">
+                              {project.description}
+                            </p>
+
+                            {/* Highlights as inline chips */}
+                            <div className="flex flex-wrap gap-2 mb-5">
+                              {project.highlights.map((h, i) => (
+                                <span
+                                  key={i}
+                                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground bg-muted/50 rounded-md px-2.5 py-1.5"
+                                >
+                                  <span className="w-1 h-1 rounded-full bg-primary flex-shrink-0" />
+                                  {h}
+                                </span>
+                              ))}
+                            </div>
+
+                            {/* Skills */}
+                            <div className="flex flex-wrap gap-1.5">
+                              {project.skills.map((skill) => (
+                                <Badge
+                                  key={skill}
+                                  variant="secondary"
+                                  className="text-xs font-normal"
+                                >
+                                  {skill}
+                                </Badge>
+                              ))}
+                            </div>
+                          </div>
+
+                          {/* Right action area */}
+                          <div className="flex md:flex-col gap-2 md:items-end shrink-0">
+                            {project.liveUrl && (
+                              <Button asChild size="sm" className="group/btn">
+                                <Link
+                                  href={project.liveUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  <Globe className="w-4 h-4 mr-1.5" />
+                                  Live
+                                  <ArrowUpRight className="w-3 h-3 ml-1 opacity-0 group-hover/btn:opacity-100 transition-opacity" />
+                                </Link>
+                              </Button>
+                            )}
+                            {project.githubUrl && (
+                              <Button
+                                asChild
+                                variant="outline"
+                                size="sm"
+                                className="group/btn"
+                              >
+                                <Link
+                                  href={project.githubUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  <Github className="w-4 h-4 mr-1.5" />
+                                  Code
+                                  <ArrowUpRight className="w-3 h-3 ml-1 opacity-0 group-hover/btn:opacity-100 transition-opacity" />
+                                </Link>
+                              </Button>
+                            )}
+                          </div>
+                        </div>
                       </div>
-                      <div className="flex-1">
-                        <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                    </motion.div>
+                  );
+                })}
+              </div>
+            )}
+
+            {/* Other Projects — grid */}
+            {otherProjects.length > 0 && (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {otherProjects.map((project, index) => {
+                  const statusBadge = getStatusBadge(project.status);
+                  return (
+                    <motion.div
+                      key={project.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{
+                        duration: 0.35,
+                        delay: featuredProjects.length * 0.1 + index * 0.08,
+                      }}
+                      className={`group relative overflow-hidden rounded-xl bg-card border border-border/60 transition-all duration-300 hover:shadow-lg ${getTypeBorder(project.type)} card`}
+                    >
+                      {/* Top accent */}
+                      <div className={`absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r ${getTypeAccent(project.type)}`} />
+
+                      <div className="p-5">
+                        {/* Header */}
+                        <div className="flex items-center justify-between mb-3">
+                          <Badge className={`${statusBadge.className} text-xs`}>
+                            {statusBadge.label}
+                          </Badge>
+                          <span className="text-xs text-muted-foreground">
+                            {project.period}
+                          </span>
+                        </div>
+
+                        <h3 className="text-lg font-bold mb-1 group-hover:text-primary transition-colors">
                           {project.title}
                         </h3>
-                        <p className="text-primary font-semibold mb-2">
+                        <p className="text-xs text-primary font-medium mb-3">
                           {project.subtitle}
                         </p>
-                        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
-                          <Calendar className="w-3 h-3" />
-                          <span>{project.period}</span>
-                          <span>•</span>
-                          <span>{project.impact}</span>
+
+                        {/* Competition stats inline */}
+                        {project.stats && (
+                          <div className="flex gap-4 mb-3 text-xs">
+                            {project.stats.rank && (
+                              <span className="text-muted-foreground">
+                                Rank:{" "}
+                                <span className="text-primary font-semibold">
+                                  {project.stats.rank}
+                                </span>
+                              </span>
+                            )}
+                            {project.stats.participants && (
+                              <span className="text-muted-foreground">
+                                of{" "}
+                                <span className="font-semibold text-foreground">
+                                  {project.stats.participants}
+                                </span>
+                              </span>
+                            )}
+                            {project.stats.prize && (
+                              <span className="text-muted-foreground">
+                                Prize:{" "}
+                                <span className="text-primary font-semibold">
+                                  {project.stats.prize}
+                                </span>
+                              </span>
+                            )}
+                          </div>
+                        )}
+
+                        <p className="text-muted-foreground text-xs leading-relaxed mb-4">
+                          {project.description}
+                        </p>
+
+                        {/* Skills */}
+                        <div className="flex flex-wrap gap-1 mb-4">
+                          {project.skills.slice(0, 4).map((skill) => (
+                            <Badge
+                              key={skill}
+                              variant="secondary"
+                              className="text-[10px] font-normal px-1.5 py-0.5"
+                            >
+                              {skill}
+                            </Badge>
+                          ))}
+                          {project.skills.length > 4 && (
+                            <Badge
+                              variant="secondary"
+                              className="text-[10px] font-normal px-1.5 py-0.5 opacity-60"
+                            >
+                              +{project.skills.length - 4}
+                            </Badge>
+                          )}
                         </div>
-                        <div className={`inline-block px-3 py-1 rounded-full text-xs font-medium border ${getStatusColor(project.status)}`}>
-                          {project.status.charAt(0).toUpperCase() + project.status.slice(1)}
-                        </div>
-                      </div>
-                    </div>
 
-                    {/* Stats */}
-                    {project.stats && (
-                      <div className="grid grid-cols-3 gap-4 mb-6 p-4 bg-muted/30 rounded-xl">
-                        {project.type === 'competition' && (
-                          <>
-                            <div className="text-center">
-                              <div className="text-lg font-bold text-primary">{project.stats.rank}</div>
-                              <div className="stat-label">Rank</div>
-                            </div>
-                            <div className="text-center">
-                              <div className="text-lg font-bold text-foreground">{project.stats.participants}</div>
-                              <div className="stat-label">Participants</div>
-                            </div>
-                            <div className="text-center">
-                              <div className="text-lg font-bold text-primary">{project.stats.prize}</div>
-                              <div className="stat-label">Prize</div>
-                            </div>
-                          </>
-                        )}
-                        {project.type === 'publication' && (
-                          <>
-                            <div className="text-center">
-                              <div className="text-lg font-bold text-primary">{project.stats.venue}</div>
-                              <div className="stat-label">Venue</div>
-                            </div>
-                            <div className="text-center">
-                              <div className="text-lg font-bold text-foreground">{project.stats.impact}</div>
-                              <div className="stat-label">Scope</div>
-                            </div>
-                            <div className="text-center">
-                              <div className="text-lg font-bold text-primary">{project.stats.type}</div>
-                              <div className="stat-label">Type</div>
-                            </div>
-                          </>
-                        )}
-                        {project.type === 'project' && (
-                          <>
-                            <div className="text-center">
-                              <div className="text-lg font-bold text-primary">{project.stats.frontend}</div>
-                              <div className="stat-label">Frontend</div>
-                            </div>
-                            <div className="text-center">
-                              <div className="text-lg font-bold text-foreground">{project.stats.backend}</div>
-                              <div className="stat-label">Backend</div>
-                            </div>
-                            <div className="text-center">
-                              <div className="text-lg font-bold text-primary">{project.stats.deployment}</div>
-                              <div className="stat-label">Deployment</div>
-                            </div>
-                          </>
+                        {/* Action */}
+                        {project.link && project.link !== "#" && (
+                          <Link
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 text-xs font-medium text-primary hover:underline"
+                          >
+                            {project.type === "publication"
+                              ? "View Paper"
+                              : "View Source"}
+                            <ArrowUpRight className="w-3 h-3" />
+                          </Link>
                         )}
                       </div>
-                    )}
-
-                    {/* Description */}
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                      {project.description}
-                    </p>
-
-                    {/* Highlights */}
-                    <div className="mb-6">
-                      <h4 className="text-sm font-semibold text-foreground mb-3">Key Highlights</h4>
-                      <ul className="space-y-2">
-                        {project.highlights.slice(0, 3).map((highlight, i) => (
-                          <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                            <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                            <span>{highlight}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Skills */}
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {project.skills.map((skill) => (
-                        <Badge key={skill} variant="outline" className="text-xs">
-                          {skill}
-                        </Badge>
-                      ))}
-                    </div>
-
-                    {/* Action */}
-                    <div className="flex gap-3">
-                      {project.link && project.link !== '#' && (
-                        <Button asChild variant={project.liveUrl ? "outline" : "default"} className="flex-1">
-                          <Link href={project.link} target="_blank" rel="noopener noreferrer">
-                            <ExternalLink className="w-4 h-4 mr-2" />
-                            {project.type === 'publication' ? 'View Paper' : 'Source Code'}
-                          </Link>
-                        </Button>
-                      )}
-                      {project.liveUrl && (
-                        <Button asChild className="flex-1">
-                          <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                            <ExternalLink className="w-4 h-4 mr-2" />
-                            Live Demo
-                          </Link>
-                        </Button>
-                      )}
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
+                    </motion.div>
+                  );
+                })}
+              </div>
+            )}
           </motion.div>
         </AnimatePresence>
 
-        {/* Call to Action */}
+        {/* CTA */}
         <ScrollReveal>
           <div className="text-center mt-16">
-            <div className="bg-card border border-border rounded-2xl p-8 md:p-12 max-w-2xl mx-auto">
-              <Users className="w-12 h-12 text-primary mx-auto mb-4" />
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">Collaborate on the Next Big Thing</h2>
-              <p className="text-muted-foreground mb-6">
-                I&apos;m always excited to work on challenging projects and competitions. Let&apos;s build something amazing together!
+            <div className="inline-flex flex-col items-center gap-4 bg-card border border-border rounded-2xl p-8 md:p-10">
+              <Users className="w-10 h-10 text-primary" />
+              <h2 className="text-xl md:text-2xl font-bold">
+                Let&apos;s Build Something Together
+              </h2>
+              <p className="text-muted-foreground text-sm max-w-md">
+                I&apos;m always excited to collaborate on challenging AI projects.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" asChild>
+              <div className="flex gap-3">
+                <Button size="sm" asChild>
                   <Link href="/contact">
-                    Start a Project
-                    <ExternalLink className="w-4 h-4 ml-2" />
+                    Get In Touch
+                    <ArrowUpRight className="w-3.5 h-3.5 ml-1.5" />
                   </Link>
                 </Button>
-                <Button size="lg" variant="outline" asChild>
-                  <Link href="/experience">
-                    View Experience
-                    <ExternalLink className="w-4 h-4 ml-2" />
-                  </Link>
+                <Button size="sm" variant="outline" asChild>
+                  <Link href="/experience">View Experience</Link>
                 </Button>
               </div>
             </div>
