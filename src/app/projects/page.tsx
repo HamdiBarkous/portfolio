@@ -5,6 +5,8 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Trophy, BookOpen, Code, ExternalLink, Calendar, Target, Award, Users } from 'lucide-react';
 import Link from 'next/link';
+import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/ScrollReveal';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const projectsData = [
   {
@@ -23,7 +25,7 @@ const projectsData = [
     skills: ['Python', 'LangGraph', 'Vision AI', 'FastAPI', 'Next.js', 'Supabase', 'WebSocket', 'Paddle'],
     status: 'live',
     featured: true,
-    link: undefined,
+    link: undefined as string | undefined,
     liveUrl: 'https://intotex.com',
     stats: { frontend: 'Next.js', backend: 'FastAPI', deployment: 'Production' }
   },
@@ -163,239 +165,259 @@ export default function ProjectsPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background to-muted/20">
+      {/* Subtle background pattern */}
+      <div className="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_1px_1px,var(--border)_1px,transparent_0)] bg-[size:40px_40px] opacity-30" />
+
       <div className="container mx-auto px-4 py-12 md:py-20">
         
         {/* Hero Section */}
-        <div className="text-center mb-16">
-          
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text">
-            Projects & Achievements
-          </h1>
-          
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
-            A showcase of my competition victories, research publications, and innovative projects in machine learning and AI.
-          </p>
+        <ScrollReveal>
+          <div className="text-center mb-16">
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text">
+              Projects & Achievements
+            </h1>
+            
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
+              A showcase of my competition victories, research publications, and innovative projects in machine learning and AI.
+            </p>
 
-          {/* Achievement Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto mb-12">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-primary">2</div>
-              <div className="text-sm text-muted-foreground">Full Stack Projects</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-foreground">$10,000+</div>
-              <div className="text-sm text-muted-foreground">AI Hackathon Wins</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-foreground">1</div>
-              <div className="text-sm text-muted-foreground">IEEE Publication</div>
+            {/* Achievement Stats */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto mb-12">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-primary">2</div>
+                <div className="text-sm text-muted-foreground">Full Stack Projects</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-foreground">$10,000+</div>
+                <div className="text-sm text-muted-foreground">AI Hackathon Wins</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-foreground">1</div>
+                <div className="text-sm text-muted-foreground">IEEE Publication</div>
+              </div>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-12">
-          {categories.map((category) => {
-            const Icon = category.icon;
-            const isActive = activeCategory === category.id;
-            
-            return (
-              <button
-                key={category.id}
-                onClick={() => setActiveCategory(category.id)}
-                className={`flex items-center gap-2 px-4 md:px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                  isActive
-                    ? 'bg-primary text-primary-foreground shadow-lg scale-105'
-                    : 'bg-card hover:bg-muted border border-border hover:border-primary/50'
-                }`}
-              >
-                <Icon className="w-4 h-4" />
-                <span className="text-sm md:text-base">{category.label}</span>
-                <Badge variant="secondary" className="ml-1 text-xs">
-                  {category.count}
-                </Badge>
-              </button>
-            );
-          })}
-        </div>
+        <ScrollReveal delay={0.1}>
+          <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-12">
+            {categories.map((category) => {
+              const Icon = category.icon;
+              const isActive = activeCategory === category.id;
+              
+              return (
+                <button
+                  key={category.id}
+                  onClick={() => setActiveCategory(category.id)}
+                  className={`flex items-center gap-2 px-4 md:px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                    isActive
+                      ? 'bg-primary text-primary-foreground shadow-lg scale-105'
+                      : 'bg-card hover:bg-muted border border-border hover:border-primary/50'
+                  }`}
+                >
+                  <Icon className="w-4 h-4" />
+                  <span className="text-sm md:text-base">{category.label}</span>
+                  <Badge variant="secondary" className="ml-1 text-xs">
+                    {category.count}
+                  </Badge>
+                </button>
+              );
+            })}
+          </div>
+        </ScrollReveal>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {filteredProjects.map((project) => {
-            const Icon = getTypeIcon(project.type);
-            
-            return (
-              <div
-                key={project.id}
-                className={`group relative overflow-hidden rounded-2xl bg-card border border-border/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] ${
-                  project.featured ? 'ring-2 ring-primary/20 shadow-primary/10' : ''
-                } card`}
-              >
-                {project.featured && (
-                  <div className="absolute top-4 right-4 z-10">
-                    <Badge className="badge-prize">
-                      <Award className="w-3 h-3 mr-1" />
-                      Featured
-                    </Badge>
-                  </div>
-                )}
-
-                <div className="p-6 md:p-8">
-                  {/* Header */}
-                  <div className="flex items-start gap-4 mb-6">
-                    <div className="p-3 rounded-xl bg-primary/10 text-primary">
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
-                        {project.title}
-                      </h3>
-                      <p className="text-primary font-semibold mb-2">
-                        {project.subtitle}
-                      </p>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
-                        <Calendar className="w-3 h-3" />
-                        <span>{project.period}</span>
-                        <span>•</span>
-                        <span>{project.impact}</span>
-                      </div>
-                      <div className={`inline-block px-3 py-1 rounded-full text-xs font-medium border ${getStatusColor(project.status)}`}>
-                        {project.status.charAt(0).toUpperCase() + project.status.slice(1)}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Stats */}
-                  {project.stats && (
-                    <div className="grid grid-cols-3 gap-4 mb-6 p-4 bg-muted/30 rounded-xl">
-                      {project.type === 'competition' && (
-                        <>
-                          <div className="text-center">
-                            <div className="text-lg font-bold text-primary">{project.stats.rank}</div>
-                            <div className="stat-label">Rank</div>
-                          </div>
-                          <div className="text-center">
-                            <div className="text-lg font-bold text-foreground">{project.stats.participants}</div>
-                            <div className="stat-label">Participants</div>
-                          </div>
-                          <div className="text-center">
-                            <div className="text-lg font-bold text-primary">{project.stats.prize}</div>
-                            <div className="stat-label">Prize</div>
-                          </div>
-                        </>
-                      )}
-                      {project.type === 'publication' && (
-                        <>
-                          <div className="text-center">
-                            <div className="text-lg font-bold text-primary">{project.stats.venue}</div>
-                            <div className="stat-label">Venue</div>
-                          </div>
-                          <div className="text-center">
-                            <div className="text-lg font-bold text-foreground">{project.stats.impact}</div>
-                            <div className="stat-label">Scope</div>
-                          </div>
-                          <div className="text-center">
-                            <div className="text-lg font-bold text-primary">{project.stats.type}</div>
-                            <div className="stat-label">Type</div>
-                          </div>
-                        </>
-                      )}
-                      {project.type === 'project' && (
-                        <>
-                          <div className="text-center">
-                            <div className="text-lg font-bold text-primary">{project.stats.frontend}</div>
-                            <div className="stat-label">Frontend</div>
-                          </div>
-                          <div className="text-center">
-                            <div className="text-lg font-bold text-foreground">{project.stats.backend}</div>
-                            <div className="stat-label">Backend</div>
-                          </div>
-                          <div className="text-center">
-                            <div className="text-lg font-bold text-primary">{project.stats.deployment}</div>
-                            <div className="stat-label">Deployment</div>
-                          </div>
-                        </>
-                      )}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeCategory}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          >
+            {filteredProjects.map((project, index) => {
+              const Icon = getTypeIcon(project.type);
+              
+              return (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  className={`group relative overflow-hidden rounded-2xl bg-card border border-border/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] ${
+                    project.featured ? 'ring-2 ring-primary/20 shadow-primary/10' : ''
+                  } card`}
+                >
+                  {project.featured && (
+                    <div className="absolute top-4 right-4 z-10">
+                      <Badge className="badge-prize">
+                        <Award className="w-3 h-3 mr-1" />
+                        Featured
+                      </Badge>
                     </div>
                   )}
 
-                  {/* Description */}
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                    {project.description.replace(/'/g, "&apos;")}
-                  </p>
+                  <div className="p-6 md:p-8">
+                    {/* Header */}
+                    <div className="flex items-start gap-4 mb-6">
+                      <div className="p-3 rounded-xl bg-primary/10 text-primary">
+                        <Icon className="w-6 h-6" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                          {project.title}
+                        </h3>
+                        <p className="text-primary font-semibold mb-2">
+                          {project.subtitle}
+                        </p>
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+                          <Calendar className="w-3 h-3" />
+                          <span>{project.period}</span>
+                          <span>•</span>
+                          <span>{project.impact}</span>
+                        </div>
+                        <div className={`inline-block px-3 py-1 rounded-full text-xs font-medium border ${getStatusColor(project.status)}`}>
+                          {project.status.charAt(0).toUpperCase() + project.status.slice(1)}
+                        </div>
+                      </div>
+                    </div>
 
-                  {/* Highlights */}
-                  <div className="mb-6">
-                    <h4 className="text-sm font-semibold text-foreground mb-3">Key Highlights</h4>
-                    <ul className="space-y-2">
-                      {project.highlights.slice(0, 3).map((highlight, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                          <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                          <span>{highlight}</span>
-                        </li>
+                    {/* Stats */}
+                    {project.stats && (
+                      <div className="grid grid-cols-3 gap-4 mb-6 p-4 bg-muted/30 rounded-xl">
+                        {project.type === 'competition' && (
+                          <>
+                            <div className="text-center">
+                              <div className="text-lg font-bold text-primary">{project.stats.rank}</div>
+                              <div className="stat-label">Rank</div>
+                            </div>
+                            <div className="text-center">
+                              <div className="text-lg font-bold text-foreground">{project.stats.participants}</div>
+                              <div className="stat-label">Participants</div>
+                            </div>
+                            <div className="text-center">
+                              <div className="text-lg font-bold text-primary">{project.stats.prize}</div>
+                              <div className="stat-label">Prize</div>
+                            </div>
+                          </>
+                        )}
+                        {project.type === 'publication' && (
+                          <>
+                            <div className="text-center">
+                              <div className="text-lg font-bold text-primary">{project.stats.venue}</div>
+                              <div className="stat-label">Venue</div>
+                            </div>
+                            <div className="text-center">
+                              <div className="text-lg font-bold text-foreground">{project.stats.impact}</div>
+                              <div className="stat-label">Scope</div>
+                            </div>
+                            <div className="text-center">
+                              <div className="text-lg font-bold text-primary">{project.stats.type}</div>
+                              <div className="stat-label">Type</div>
+                            </div>
+                          </>
+                        )}
+                        {project.type === 'project' && (
+                          <>
+                            <div className="text-center">
+                              <div className="text-lg font-bold text-primary">{project.stats.frontend}</div>
+                              <div className="stat-label">Frontend</div>
+                            </div>
+                            <div className="text-center">
+                              <div className="text-lg font-bold text-foreground">{project.stats.backend}</div>
+                              <div className="stat-label">Backend</div>
+                            </div>
+                            <div className="text-center">
+                              <div className="text-lg font-bold text-primary">{project.stats.deployment}</div>
+                              <div className="stat-label">Deployment</div>
+                            </div>
+                          </>
+                        )}
+                      </div>
+                    )}
+
+                    {/* Description */}
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                      {project.description}
+                    </p>
+
+                    {/* Highlights */}
+                    <div className="mb-6">
+                      <h4 className="text-sm font-semibold text-foreground mb-3">Key Highlights</h4>
+                      <ul className="space-y-2">
+                        {project.highlights.slice(0, 3).map((highlight, i) => (
+                          <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                            <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                            <span>{highlight}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Skills */}
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {project.skills.map((skill) => (
+                        <Badge key={skill} variant="outline" className="text-xs">
+                          {skill}
+                        </Badge>
                       ))}
-                    </ul>
-                  </div>
+                    </div>
 
-                  {/* Skills */}
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {project.skills.map((skill) => (
-                      <Badge key={skill} variant="outline" className="text-xs">
-                        {skill}
-                      </Badge>
-                    ))}
+                    {/* Action */}
+                    <div className="flex gap-3">
+                      {project.link && project.link !== '#' && (
+                        <Button asChild variant={project.liveUrl ? "outline" : "default"} className="flex-1">
+                          <Link href={project.link} target="_blank" rel="noopener noreferrer">
+                            <ExternalLink className="w-4 h-4 mr-2" />
+                            {project.type === 'publication' ? 'View Paper' : 'Source Code'}
+                          </Link>
+                        </Button>
+                      )}
+                      {project.liveUrl && (
+                        <Button asChild className="flex-1">
+                          <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                            <ExternalLink className="w-4 h-4 mr-2" />
+                            Live Demo
+                          </Link>
+                        </Button>
+                      )}
+                    </div>
                   </div>
-
-                  {/* Action */}
-                  <div className="space-y-3">
-                    {project.link && project.link !== '#' && (
-                      <Button asChild className="w-full">
-                        <Link href={project.link} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="w-4 h-4 mr-2" />
-                          {project.type === 'publication' ? 'View Paper' : 'View Source Code'}
-                        </Link>
-                      </Button>
-                    )}
-                    {project.liveUrl && (
-                      <Button asChild className="w-full">
-                        <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="w-4 h-4 mr-2" />
-                          View Live Demo
-                        </Link>
-                      </Button>
-                    )}
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </AnimatePresence>
 
         {/* Call to Action */}
-        <div className="text-center mt-16">
-          <div className="bg-card border border-border rounded-2xl p-8 md:p-12 max-w-2xl mx-auto">
-            <Users className="w-12 h-12 text-primary mx-auto mb-4" />
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">Collaborate on the Next Big Thing</h2>
-            <p className="text-muted-foreground mb-6">
-              I&apos;m always excited to work on challenging projects and competitions. Let&apos;s build something amazing together!
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" asChild>
-                <Link href="/contact">
-                  Start a Project
-                  <ExternalLink className="w-4 h-4 ml-2" />
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <Link href="/experience">
-                  View Experience
-                  <ExternalLink className="w-4 h-4 ml-2" />
-                </Link>
-              </Button>
+        <ScrollReveal>
+          <div className="text-center mt-16">
+            <div className="bg-card border border-border rounded-2xl p-8 md:p-12 max-w-2xl mx-auto">
+              <Users className="w-12 h-12 text-primary mx-auto mb-4" />
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">Collaborate on the Next Big Thing</h2>
+              <p className="text-muted-foreground mb-6">
+                I&apos;m always excited to work on challenging projects and competitions. Let&apos;s build something amazing together!
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button size="lg" asChild>
+                  <Link href="/contact">
+                    Start a Project
+                    <ExternalLink className="w-4 h-4 ml-2" />
+                  </Link>
+                </Button>
+                <Button size="lg" variant="outline" asChild>
+                  <Link href="/experience">
+                    View Experience
+                    <ExternalLink className="w-4 h-4 ml-2" />
+                  </Link>
+                </Button>
+              </div>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </div>
   );
-} 
+}

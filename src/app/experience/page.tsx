@@ -4,6 +4,8 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { MapPin, Calendar, ExternalLink, TrendingUp, Users, Code, Award } from 'lucide-react';
 import Link from 'next/link';
+import { ScrollReveal } from '@/components/ScrollReveal';
+import { motion } from 'framer-motion';
 
 const experienceData = [
   {
@@ -55,19 +57,23 @@ export default function ExperiencePage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background to-muted/20">
+      {/* Subtle background pattern */}
+      <div className="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_1px_1px,var(--border)_1px,transparent_0)] bg-[size:40px_40px] opacity-30" />
+
       <div className="container mx-auto px-4 py-12 md:py-20">
         
         {/* Hero Section */}
-        <div className="text-center mb-16">
-          
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text">
-            Work Experience
-          </h1>
-          
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-12">
-            My professional journey in machine learning and AI, building impactful solutions and advancing the field through research and development.
-          </p>
-        </div>
+        <ScrollReveal>
+          <div className="text-center mb-16">
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text">
+              Work Experience
+            </h1>
+            
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-12">
+              My professional journey in machine learning and AI, building impactful solutions and advancing the field through research and development.
+            </p>
+          </div>
+        </ScrollReveal>
 
         {/* Timeline */}
         <div className="relative max-w-4xl mx-auto">
@@ -75,8 +81,12 @@ export default function ExperiencePage() {
           <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary/50 to-transparent transform md:-translate-x-px"></div>
           
           {experienceData.map((experience, index) => (
-            <div
+            <motion.div
               key={experience.id}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.6, delay: index * 0.2, ease: [0.25, 0.4, 0.25, 1] }}
               className={`relative flex items-center mb-16 ${
                 index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
               }`}
@@ -93,7 +103,7 @@ export default function ExperiencePage() {
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-2">
                         <Badge className={`text-xs font-medium border ${getStatusColor(experience.status)}`}>
-                          {experience.status === 'current' ? '\u25cf Current' : 'Completed'}
+                          {experience.status === 'current' ? '● Current' : 'Completed'}
                         </Badge>
                         <Badge variant="outline" className="text-xs">
                           {experience.type}
@@ -165,35 +175,37 @@ export default function ExperiencePage() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* Call to Action */}
-        <div className="text-center mt-16">
-          <div className="bg-card border border-border rounded-2xl p-8 md:p-12 max-w-2xl mx-auto">
-            <Users className="w-12 h-12 text-primary mx-auto mb-4" />
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">Let&apos;s Work Together</h2>
-            <p className="text-muted-foreground mb-6">
-              I&apos;m passionate about solving complex problems with AI and building impactful solutions.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" asChild>
-                <Link href="/contact">
-                  Get In Touch
-                  <ExternalLink className="w-4 h-4 ml-2" />
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <Link href="/projects">
-                  View My Projects
-                  <ExternalLink className="w-4 h-4 ml-2" />
-                </Link>
-              </Button>
+        <ScrollReveal>
+          <div className="text-center mt-16">
+            <div className="bg-card border border-border rounded-2xl p-8 md:p-12 max-w-2xl mx-auto">
+              <Users className="w-12 h-12 text-primary mx-auto mb-4" />
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">Let&apos;s Work Together</h2>
+              <p className="text-muted-foreground mb-6">
+                I&apos;m passionate about solving complex problems with AI and building impactful solutions.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button size="lg" asChild>
+                  <Link href="/contact">
+                    Get In Touch
+                    <ExternalLink className="w-4 h-4 ml-2" />
+                  </Link>
+                </Button>
+                <Button size="lg" variant="outline" asChild>
+                  <Link href="/projects">
+                    View My Projects
+                    <ExternalLink className="w-4 h-4 ml-2" />
+                  </Link>
+                </Button>
+              </div>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </div>
   );
-} 
+}

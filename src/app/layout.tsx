@@ -17,8 +17,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Hamdi Barkous | ML Engineer", // Updated Title
-  description: "Personal portfolio website of Hamdi Barkous, showcasing projects and experience in Machine Learning and AI.", // Updated Description
+  title: {
+    default: "Hamdi Barkous | ML Engineer",
+    template: "%s | Hamdi Barkous",
+  },
+  description: "Personal portfolio website of Hamdi Barkous, showcasing projects and experience in Machine Learning and AI.",
 };
 
 export default function RootLayout({
