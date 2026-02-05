@@ -31,6 +31,7 @@ const skillsCategories = [
     icon: CodeXml,
     skills: [
       { name: "Python", iconName: "python" },
+      { name: "TypeScript", iconName: "typescript" },
       { name: "SQL", iconName: "sql" },
     ],
   },
@@ -38,10 +39,10 @@ const skillsCategories = [
     name: "ML/AI Frameworks",
     icon: BrainCircuit,
     skills: [
+      { name: "LangChain", iconName: "langchain" },
       { name: "LangGraph", iconName: "langgraph" },
       { name: "PyTorch", iconName: "pytorch" },
       { name: "TensorFlow", iconName: "tensorflow" },
-      { name: "OpenCV", iconName: "opencv" },
     ],
   },
   {
@@ -49,9 +50,9 @@ const skillsCategories = [
     icon: ServerCog,
     skills: [
       { name: "FastAPI", iconName: "fastapi" },
+      { name: "Next.js", iconName: "nextjs" },
       { name: "PostgreSQL", iconName: "postgress" },
       { name: "Redis", iconName: "redis" },
-      { name: "Supabase", iconName: "supabase" },
     ],
   },
   {
@@ -67,6 +68,7 @@ const skillsCategories = [
     icon: Cloud,
     skills: [
       { name: "AWS", iconName: "aws" },
+      { name: "Vercel", iconName: "vercel" },
       { name: "Docker", iconName: "docker" },
       { name: "Git", iconName: "git" },
     ],
@@ -92,8 +94,16 @@ const featuredExperience = {
 
 const featuredProjects = [
   {
+    title: 'IntoTeX',
+    type: 'AI-Powered PDF to LaTeX SaaS',
+    prize: 'Live',
+    rank: 'Featured',
+    icon: Code,
+    color: 'badge-highlight'
+  },
+  {
     title: 'T3 Chat Clone',
-    type: 'Full Stack Project',
+    type: 'Full Stack AI Chatbot',
     prize: 'Live Demo',
     rank: 'Featured',
     icon: Code,

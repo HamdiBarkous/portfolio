@@ -8,6 +8,26 @@ import Link from 'next/link';
 
 const projectsData = [
   {
+    id: 0,
+    type: 'project',
+    title: 'IntoTeX',
+    subtitle: 'AI-Powered PDF to LaTeX Converter • SaaS Platform',
+    period: '2025',
+    impact: 'Full-stack SaaS with AI agent pipeline',
+    description: 'Built a full-stack SaaS platform that converts PDF documents to LaTeX source code using a LangGraph-based AI agent with vision capabilities and a sophisticated PDF extraction engine.',
+    highlights: [
+      'Developed a sophisticated PDF extraction engine for complex document structures',
+      'Built a self-correcting agentic pipeline with visual feedback for high-fidelity output',
+      'Implemented credit-based subscription system with Paddle payment integration'
+    ],
+    skills: ['Python', 'LangGraph', 'Vision AI', 'FastAPI', 'Next.js', 'Supabase', 'WebSocket', 'Paddle'],
+    status: 'live',
+    featured: true,
+    link: undefined,
+    liveUrl: 'https://intotex.com',
+    stats: { frontend: 'Next.js', backend: 'FastAPI', deployment: 'Production' }
+  },
+  {
     id: 1,
     type: 'project',
     title: 'T3 Chat Clone',
@@ -159,8 +179,8 @@ export default function ProjectsPage() {
           {/* Achievement Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto mb-12">
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary">1</div>
-              <div className="text-sm text-muted-foreground">Full Stack Project</div>
+              <div className="text-3xl font-bold text-primary">2</div>
+              <div className="text-sm text-muted-foreground">Full Stack Projects</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-foreground">$10,000+</div>
