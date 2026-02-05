@@ -135,9 +135,7 @@ const featuredProjects = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-muted/20">
-      {/* Subtle background pattern */}
-      <div className="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_1px_1px,var(--border)_1px,transparent_0)] bg-[size:40px_40px] opacity-30" />
+    <div className="min-h-screen">
 
       <div className="container mx-auto px-4 py-8 md:py-12">
         
@@ -150,9 +148,8 @@ export default function Home() {
             
             {/* Experience Section */}
             <ScrollReveal delay={0.1} direction="left">
-              <div className="group relative overflow-hidden rounded-2xl bg-card border border-border shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] flex flex-col card h-full">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent"></div>
-                <div className="relative p-8 md:p-10 flex flex-col flex-1">
+              <div className="group rounded-2xl bg-card border border-border shadow-sm hover:shadow-md transition-all duration-300 flex flex-col h-full">
+                <div className="p-8 md:p-10 flex flex-col flex-1">
                   
                   {/* Header */}
                   <div className="flex items-center gap-4 mb-6">
@@ -204,9 +201,8 @@ export default function Home() {
 
             {/* Projects Section */}
             <ScrollReveal delay={0.2} direction="right">
-              <div className="group relative overflow-hidden rounded-2xl bg-card border border-border shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] flex flex-col card h-full">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent"></div>
-                <div className="relative p-8 md:p-10 flex flex-col flex-1">
+              <div className="group rounded-2xl bg-card border border-border shadow-sm hover:shadow-md transition-all duration-300 flex flex-col h-full">
+                <div className="p-8 md:p-10 flex flex-col flex-1">
                   
                   {/* Header */}
                   <div className="flex items-center gap-4 mb-6">
@@ -273,17 +269,14 @@ export default function Home() {
             {skillsCategories.map((category) => (
               <StaggerItem key={category.name}>
                 <div
-                  className="group relative overflow-hidden rounded-2xl border border-border/20 bg-card/50 backdrop-blur-sm p-8 shadow-lg transition-all duration-300 hover:shadow-xl hover:border-primary/40 hover:-translate-y-1 h-full"
+                  className="group rounded-2xl border border-border bg-card p-8 shadow-sm transition-all duration-300 hover:shadow-md hover:border-primary/30 h-full"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/8 to-secondary/8 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary/60 to-secondary/60 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
-                  
-                  <div className="relative z-10">
+                  <div>
                     <div className="flex items-center gap-4 mb-6">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 border border-primary/20 group-hover:bg-primary/15 transition-colors">
-                        <category.icon className="h-6 w-6 text-primary" />
+                      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                        <category.icon className="h-5 w-5" />
                       </div>
-                      <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                      <h3 className="text-lg font-semibold text-foreground">
                         {category.name}
                       </h3>
                     </div>
@@ -292,7 +285,7 @@ export default function Home() {
                       {category.skills.map((skill) => (
                         <div
                           key={skill.name}
-                          className="group/skill flex items-center gap-3 rounded-xl p-3 bg-background/60 border border-border/30 transition-all duration-200 hover:bg-background/80 hover:border-primary/30 hover:shadow-md hover:scale-105"
+                          className="group/skill flex items-center gap-3 rounded-lg p-2.5 bg-muted/50 border border-border/50 transition-all duration-200 hover:border-primary/30"
                         >
                           <div className="icon-container-enhanced flex h-9 w-9 items-center justify-center rounded-lg p-1">
                             <ThemedIcon
@@ -318,8 +311,8 @@ export default function Home() {
         <ScrollReveal>
           <section id="cta" className="text-center">
             <div className="bg-card border border-border rounded-2xl p-8 md:p-12 max-w-2xl mx-auto">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full mb-6">
-                <Users className="w-8 h-8 text-white" />
+              <div className="inline-flex items-center justify-center w-14 h-14 bg-primary/10 rounded-full mb-6">
+                <Users className="w-7 h-7 text-primary" />
               </div>
               <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Work Together?</h2>
               <p className="text-muted-foreground mb-6">

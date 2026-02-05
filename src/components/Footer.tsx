@@ -18,7 +18,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="border-t border-border/40 bg-card/50 backdrop-blur-sm">
+    <footer className="border-t border-border bg-card/80">
       <div className="container max-w-screen-2xl py-8 md:py-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Left: Branding */}

@@ -26,14 +26,13 @@ export function HeroSection() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, ease: [0.25, 0.4, 0.25, 1] }}
         >
-          <div className="relative group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-primary via-secondary to-primary rounded-full opacity-50 blur-md group-hover:opacity-75 transition-opacity duration-500 animate-gradient-shift" />
+          <div className="relative">
             <Image
               src="/img/hamdi.png"
               alt="Hamdi Barkous"
               width={200}
               height={200}
-              className="relative rounded-full border-4 border-background shadow-2xl object-cover"
+              className="rounded-full border-2 border-border shadow-lg object-cover"
               priority
             />
           </div>
@@ -61,7 +60,7 @@ export function HeroSection() {
                 href={social.href}
                 target={social.href.startsWith("mailto") ? undefined : "_blank"}
                 rel="noreferrer"
-                className="p-3 rounded-xl bg-card border border-border hover:border-primary hover:bg-primary/10 text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110 hover:shadow-lg"
+                className="p-2.5 rounded-lg bg-card border border-border text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors duration-200"
               >
                 <social.icon className="w-5 h-5" />
               </Link>
@@ -82,7 +81,7 @@ export function HeroSection() {
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-tight">
             <span className="text-foreground">Hi, I&apos;m </span>
-            <span className="bg-gradient-to-r from-primary via-primary/80 to-primary bg-clip-text text-transparent">
+            <span className="text-primary">
               Hamdi Barkous
             </span>
           </h1>

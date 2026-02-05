@@ -56,16 +56,14 @@ export default function ExperiencePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-muted/20">
-      {/* Subtle background pattern */}
-      <div className="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_1px_1px,var(--border)_1px,transparent_0)] bg-[size:40px_40px] opacity-30" />
+    <div className="min-h-screen">
 
       <div className="container mx-auto px-4 py-12 md:py-20">
         
         {/* Hero Section */}
         <ScrollReveal>
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text">
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-foreground">
               Work Experience
             </h1>
             
@@ -96,7 +94,7 @@ export default function ExperiencePage() {
               
               {/* Content Card */}
               <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-12 ml-20 md:ml-0' : 'md:pl-12 ml-20 md:ml-0'}`}>
-                <div className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 group hover:scale-[1.02] card">
+                <div className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-300 group">
                   
                   {/* Header */}
                   <div className="flex items-start justify-between mb-6">

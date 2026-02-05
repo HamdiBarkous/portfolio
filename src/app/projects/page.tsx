@@ -27,7 +27,7 @@ const projectsData = [
     type: "project",
     title: "IntoTeX",
     subtitle: "AI-Powered PDF to LaTeX Converter",
-    period: "2025",
+    period: "2026",
     impact: "Full-stack SaaS with AI agent pipeline",
     description:
       "Built a full-stack SaaS platform that converts PDF documents to LaTeX source code using a LangGraph-based AI agent with vision capabilities and a sophisticated PDF extraction engine.",
@@ -235,35 +235,16 @@ export default function ProjectsPage() {
     }
   };
 
-  const getTypeAccent = (type: string) => {
-    switch (type) {
-      case "competition":
-        return "from-yellow-500/20 to-orange-500/20 dark:from-yellow-500/10 dark:to-orange-500/10";
-      case "publication":
-        return "from-blue-500/20 to-purple-500/20 dark:from-blue-500/10 dark:to-purple-500/10";
-      case "project":
-        return "from-emerald-500/20 to-cyan-500/20 dark:from-emerald-500/10 dark:to-cyan-500/10";
-      default:
-        return "from-primary/20 to-primary/5";
-    }
+  const getTypeAccent = (_type: string) => {
+    return "from-primary/30 to-primary/5";
   };
 
-  const getTypeBorder = (type: string) => {
-    switch (type) {
-      case "competition":
-        return "hover:border-yellow-500/50";
-      case "publication":
-        return "hover:border-blue-500/50";
-      case "project":
-        return "hover:border-emerald-500/50";
-      default:
-        return "hover:border-primary/50";
-    }
+  const getTypeBorder = (_type: string) => {
+    return "hover:border-primary/40";
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-muted/20">
-      <div className="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_1px_1px,var(--border)_1px,transparent_0)] bg-[size:40px_40px] opacity-30" />
+    <div className="min-h-screen">
 
       <div className="container mx-auto px-4 py-12 md:py-20 max-w-6xl">
         {/* Page Header */}

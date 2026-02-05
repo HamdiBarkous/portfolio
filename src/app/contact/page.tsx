@@ -70,15 +70,13 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-muted/20">
-      {/* Subtle background pattern */}
-      <div className="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_1px_1px,var(--border)_1px,transparent_0)] bg-[size:40px_40px] opacity-30" />
+    <div className="min-h-screen">
 
       <div className="container mx-auto px-4 py-12 md:py-20">
         {/* Header */}
         <ScrollReveal>
           <div className="text-center mb-12 md:mb-16">
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text">
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-foreground">
               Get In Touch
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
@@ -93,7 +91,7 @@ export default function ContactPage() {
             {/* Contact Info - Left Side */}
             <ScrollReveal direction="left" className="lg:col-span-2">
               <div className="space-y-6">
-                <div className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-lg">
+                <div className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-sm">
                   <h2 className="text-xl font-bold mb-6 text-foreground">Contact Information</h2>
                   
                   <div className="space-y-5">
@@ -139,7 +137,7 @@ export default function ContactPage() {
 
             {/* Contact Form - Right Side */}
             <ScrollReveal direction="right" className="lg:col-span-3">
-              <div className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-lg">
+              <div className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-sm">
                 <h2 className="text-xl font-bold mb-6 text-foreground">Send a Message</h2>
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
