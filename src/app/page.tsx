@@ -1,14 +1,10 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { Button } from "@/components/ui/button";
 import { Badge } from '@/components/ui/badge';
 import { ThemedIcon } from "@/components/ThemedIcon";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 import { HeroSection } from "@/components/HeroSection";
 import {
-  Github,
-  Linkedin,
-  Mail,
   CodeXml,
   BrainCircuit,
   ServerCog,
@@ -24,8 +20,6 @@ import {
   ExternalLink,
   Users,
   Briefcase,
-  Download,
-  FileText,
 } from 'lucide-react';
 
 // Enhanced Skills Data with better organization and balance

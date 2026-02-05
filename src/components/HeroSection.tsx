@@ -11,7 +11,6 @@ import {
   Linkedin,
   Mail,
   Download,
-  FileText,
   ArrowRight,
 } from "lucide-react";
 

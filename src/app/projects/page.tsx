@@ -7,11 +7,9 @@ import {
   Trophy,
   BookOpen,
   Code,
-  ExternalLink,
   Github,
   Calendar,
   Target,
-  Award,
   Users,
   ArrowUpRight,
   Sparkles,
@@ -235,10 +233,12 @@ export default function ProjectsPage() {
     }
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const getTypeAccent = (_type: string) => {
     return "from-primary/30 to-primary/5";
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const getTypeBorder = (_type: string) => {
     return "hover:border-primary/40";
   };
