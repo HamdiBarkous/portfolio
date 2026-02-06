@@ -88,8 +88,8 @@ export function HeroSection() {
           <div className="text-xl md:text-2xl text-muted-foreground mb-6 h-8">
             <TypingAnimation
               words={[
-                "AI Pionner",
                 "ML Engineer",
+                "AI Pionner",
                 "Full Stack Developer",
                 "Problem Solver",
               ]}
