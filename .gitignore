@@ -45,6 +45,7 @@ next-env.d.ts
 *.blg
 *.log
 *.pdf
+!public/resume.pdf
 *.dvi
 *.ps
 *.toc
