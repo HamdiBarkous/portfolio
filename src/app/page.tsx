@@ -320,7 +320,7 @@ export default function Home() {
                   </Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
-                  <Link href="mailto:hamdi.barkous@ept.ucar.tn">
+                  <Link href="mailto:hamdibarkous10@gmail.com">
                     Send Email
                     <ExternalLink className="w-4 h-4 ml-2" />
                   </Link>

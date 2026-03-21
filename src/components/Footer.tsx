@@ -7,7 +7,7 @@ export default function Footer() {
   const socialLinks = [
     { href: 'https://github.com/HamdiBarkous', icon: Github, label: 'GitHub' },
     { href: 'https://www.linkedin.com/in/HamdiBarkous', icon: Linkedin, label: 'LinkedIn' },
-    { href: 'mailto:hamdi.barkous@ept.ucar.tn', icon: Mail, label: 'Email' },
+    { href: 'mailto:hamdibarkous10@gmail.com', icon: Mail, label: 'Email' },
   ];
 
   const navLinks = [

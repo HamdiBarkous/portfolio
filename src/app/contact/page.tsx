@@ -52,8 +52,8 @@ export default function ContactPage() {
     {
       icon: Mail,
       label: 'Email',
-      value: 'hamdi.barkous@ept.ucar.tn',
-      href: 'mailto:hamdi.barkous@ept.ucar.tn',
+      value: 'hamdibarkous10@gmail.com',
+      href: 'mailto:hamdibarkous10@gmail.com',
     },
     {
       icon: Linkedin,

@@ -49,7 +49,7 @@ export function HeroSection() {
                 label: "LinkedIn",
               },
               {
-                href: "mailto:hamdi.barkous@ept.ucar.tn",
+                href: "mailto:hamdibarkous10@gmail.com",
                 icon: Mail,
                 label: "Email",
               },
