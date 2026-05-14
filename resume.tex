@@ -4,7 +4,7 @@
 % Packages
 \usepackage[utf8]{inputenc} % For input encoding
 \usepackage{geometry} % For page margins
-\geometry{a4paper, margin=0.75in} % Set paper size and margins
+\geometry{a4paper, margin=0.6in} % Set paper size and margins
 \usepackage{titlesec} % For section title formatting
 \usepackage{enumitem} % For itemized list formatting
 \usepackage{hyperref} % For hyperlinks
@@ -14,7 +14,7 @@
 % Formatting
 \setlist{noitemsep} % Removes item separation
 \titleformat{\section}{\large\bfseries}{\thesection}{1em}{}[\titlerule] % Section title format
-\titlespacing*{\section}{0pt}{\baselineskip}{\baselineskip} % Section title spacing
+\titlespacing*{\section}{0pt}{0.6\baselineskip}{0.6\baselineskip} % Section title spacing
 
 % Begin document
 \begin{document}
@@ -36,7 +36,17 @@
 Machine Learning Engineer specializing in financial AI systems, deep learning, and agentic frameworks. Experienced in building production-ready trading models, time series forecasting, and full-stack AI applications.
 
 \section*{EXPERIENCE}
-\textbf{FinGenesis} - \textit{ML Engineer} \hfill 2024 -- present
+\textbf{Made With Chat} - \textit{Full-Stack / AI Engineer} \hfill July 2025 -- present
+
+\begin{itemize}
+    \item Building an AI co-founder SaaS letting non-technical founders ship product changes via chat, voice, and async delegation.
+    \item Architected a dual-brain agent system: a LiveKit voice agent (GPT-4.5) delegating complex coding tasks to a LangGraph deep agent (Claude) via a shared memory layer.
+    \item Designed session-durable agent memory in a Daytona sandbox, eliminating conversation summarization and preserving cross-session context.
+    \item Built a real-time SSE progress pipeline (LangGraph $\rightarrow$ Zustand) with human-in-the-loop interrupt/resume via the Command pattern.
+    \item Shipped multi-channel surfaces (web, voice, WhatsApp, Telegram) on NestJS 11 + Next.js 16, with Langfuse observability and Stripe billing.
+\end{itemize}
+
+\noindent\textbf{FinGenesis} - \textit{ML Engineer} \hfill 2024 -- 2026
 
 \begin{itemize}
     \item Engineered DL\&ML models to predict price movements across 500+ financial symbols, achieving a 2+ profit factor in live trading.
@@ -47,18 +57,19 @@ Machine Learning Engineer specializing in financial AI systems, deep learning, a
 \end{itemize}
 
 \section*{PROJECTS}
-\textbf{IntoTeX - AI-Powered PDF to LaTeX Converter} -- \href{https://intotex.com}{\textcolor{blue}{\faExternalLink}} \hfill \textbf{In Development}\\
+\textbf{Manim Agent - Agentic Pipeline for Educational Videos} -- \href{https://www.youtube.com/@Frame-zero-yt}{\textcolor{blue}{\faYoutube}} \hfill \textbf{Active}
+\begin{itemize}
+    \item Built a code-based multi-agent system for automated YouTube video generation, orchestrating planner, coder, reviewer, and critic agents to produce fully rendered Manim animations from a single prompt.
+    \item Designed an end-to-end voiceover pipeline integrated with ElevenLabs TTS, synchronizing generated narration with scene timing for seamless audio-visual output.
+    \item Powers the ``Frame Zero'' YouTube channel producing the \textit{From Zero to Intelligence} AI / Math series.
+\end{itemize}
+\vspace{0.5em}
+
+\noindent\textbf{IntoTeX - AI-Powered PDF to LaTeX Converter} -- \href{https://intotex.com}{\textcolor{blue}{\faExternalLink}} \hfill \textbf{Live Production}
 \begin{itemize}
     \item Built a full-stack SaaS platform that converts PDF documents to LaTeX source code using a LangGraph-based AI agent with vision capabilities
     \item Engineered a PDF extraction engine capable of parsing complex document structures including formatted text, raster images, and embedded vector graphics
     \item Integrated a credit-based subscription system with Stripe payment processing
-\end{itemize}
-
-\noindent\textbf{T3 Chat Clone - AI Chatbot with MCP Tools Integration} -- \href{https://t3-chat-clone-delta.vercel.app/}{\textcolor{blue}{\faExternalLink}} \href{https://github.com/HamdiBarkous/t3-chat-clone}{\textcolor{blue}{\faGithub}} \hfill \textbf{Live Production}\\
-\begin{itemize}
-    \item Launched a full-stack AI chatbot with MCP (Model Context Protocol) tools integration and multi-modal input support
-    \item Delivered real-time streaming, chat branching, and full authentication system
-    \item Deployed to production on AWS backend and Vercel frontend infrastructure
 \end{itemize}
 
 \section*{PUBLICATIONS}
@@ -79,8 +90,8 @@ Machine Learning Engineer specializing in financial AI systems, deep learning, a
 \begin{itemize}
     \item \textbf{Programming Languages:} Python, TypeScript, SQL
     \item \textbf{ML/AI Frameworks:} LangChain, LangGraph, PyTorch, TensorFlow, OpenCV
-    \item \textbf{API Development Stack:} FastAPI, Next.js, PostgreSQL, Redis, Supabase
-    \item \textbf{ML Platforms \& Tools:} Hugging Face, MLflow
+    \item \textbf{API Development Stack:} FastAPI, NestJS, Next.js, PostgreSQL, Redis, Supabase
+    \item \textbf{ML Platforms \& Tools:} Hugging Face, MLflow, Langfuse, LiveKit
     \item \textbf{DevOps \& Cloud:} AWS, Vercel, Docker, Git
     \item \textbf{Developer Tools:} Cursor, MCP
 \end{itemize}
